@@ -1,0 +1,73 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "id": "collection-sample-00001",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-sample-00001",
+        "gender": "unknown",
+        "birthDate": "1970-01-01",
+        "name": [ { "family": "Test", "given": [ "Patient" ] } ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-sample-00001",
+        "status": "active",
+        "deviceName": [ { "name": "Blood Pressure Monitor", "type": "manufacturer-name" } ],
+        "type": { "text": "Blood pressure monitor" }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-sample-00001",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": { "reference": "Patient/patient-sample-00001" },
+        "device": { "reference": "Device/device-sample-00001" },
+        "effectiveDateTime": "2026-01-01T00:00:00Z",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                { "system": "http://loinc.org", "code": "8480-6", "display": "Systolic blood pressure" }
+              ]
+            },
+            "valueQuantity": { "value": 120, "unit": "mm[Hg]", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" }
+          },
+          {
+            "code": {
+              "coding": [
+                { "system": "http://loinc.org", "code": "8462-4", "display": "Diastolic blood pressure" }
+              ]
+            },
+            "valueQuantity": { "value": 80, "unit": "mm[Hg]", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" }
+          }
+        ]
+      }
+    }
+  ]
+}

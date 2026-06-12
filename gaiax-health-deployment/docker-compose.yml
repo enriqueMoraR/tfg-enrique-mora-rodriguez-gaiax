@@ -1,0 +1,113 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: gaiax_health
+      POSTGRES_USER: gaiax
+      POSTGRES_PASSWORD: gaiax
+    ports:
+      - "5432:5432"
+    volumes:
+      - gaiax-postgres-data:/var/lib/postgresql/data
+      - ../gaiax-health-provider-node/src/main/resources/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gaiax -d gaiax_health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - gaia-x-backend
+
+  provider:
+    image: gaiax-health-provider-node:1.0.0
+    build:
+      context: ../gaiax-health-provider-node
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8081/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gaia-x-backend
+    environment:
+      GAIAX_DB_URL: jdbc:postgresql://postgres:5432/gaiax_health
+      GAIAX_DB_USER: gaiax
+      GAIAX_DB_PASSWORD: gaiax
+      GAIAX_DATA_JURISDICTION: ES
+      GAIAX_POLICY_URI: https://gaiax-health.example/policies/default
+      GAIAX_RECEIVER_DID: did:web:consumer.gaiax-health.local
+      GAIAX_RETENTION_DAYS: 30
+
+  trust:
+    image: gaiax-health-trust-service:1.0.0
+    build:
+      context: ../gaiax-health-trust-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080"
+    depends_on:
+      provider:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gaia-x-backend
+    environment:
+      GAIAX_CONSENT_POLICY: consent-granular-v1
+
+  consumer:
+    image: gaiax-health-consumer-node:1.0.0
+    build:
+      context: ../gaiax-health-consumer-node
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8080"
+    depends_on:
+      trust:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gaia-x-backend
+    environment:
+      GAIAX_TRUST_BASE_URL: http://trust:8080
+      GAIAX_CONSUMER_DID: did:web:consumer.gaiax-health.local
+      GAIAX_RECEIVER_DID: did:web:provider.gaiax-health.local
+      GAIAX_PURPOSE: research
+
+  dashboard:
+    image: gaiax-health-dashboard:1.0.0
+    build:
+      context: ../gaiax-health-dashboard
+      dockerfile: Dockerfile
+      args:
+        VITE_FHIR_API_URL: /api/fhir
+        VITE_FHIR_API_TIMEOUT: 10000
+    ports:
+      - "3000:80"
+    depends_on:
+      consumer:
+        condition: service_healthy
+    networks:
+      - gaia-x-backend
+      - default
+
+networks:
+  gaia-x-backend:
+    internal: true
+    driver: bridge
+
+volumes:
+  gaiax-postgres-data:
