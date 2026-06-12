@@ -10,6 +10,4 @@ Repositorio de trabajo con la estructura multirepo del proyecto Gaia-X Health.
 - `gaiax-health-trust-service/`
 
 ## Material compartido
-- `documentacion/`
-- `plan/`
 - `POSTMAN.md`
