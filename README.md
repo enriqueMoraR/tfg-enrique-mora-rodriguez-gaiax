@@ -11,3 +11,10 @@ Repositorio de trabajo con la estructura multirepo del proyecto Gaia-X Health.
 
 ## Material compartido
 - `POSTMAN.md`
+
+## Quick Start
+
+```bash
+cd gaiax-health-deployment
+docker compose up -d --build
+```

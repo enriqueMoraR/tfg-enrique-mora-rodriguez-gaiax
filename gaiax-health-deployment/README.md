@@ -1,6 +1,6 @@
 # gaiax-health-deployment
 
-Deployment orchestrator for the Gaia-X Health polyrepo stack.
+This repository contains the deployment configuration for the Gaia-X Health project, a polyrepo stack designed to demonstrate a federated health data exchange ecosystem. It uses Docker Compose to orchestrate the deployment of several microservices, including a provider node, a consumer node, a trust service, and a dashboard. The entire stack is designed to showcase how data can be exchanged in a secure and trusted manner, following the principles of data sovereignty and consent management.
 
 ## Repositories
 - `gaiax-health-provider-node`
