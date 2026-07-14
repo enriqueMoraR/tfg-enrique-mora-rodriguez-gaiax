@@ -1,0 +1,3629 @@
+[
+  {
+    "id_paciente": "patient-gx-00126",
+    "nif_dni": "14500613X",
+    "nombre_completo": "Laura Gómez Prieto",
+    "fecha_nacimiento": "1965-06-14",
+    "genero": "female",
+    "grupo_sanguineo": "A+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000001",
+    "email": "paciente.patient-gx-00126@example.com",
+    "direccion_fisica": "Dirección ficticia 72",
+    "id_seguro_social": "ES03386099",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "f19a145b-9b03-4842-a0a9-f21a41e9f7a6",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "ac0ef300-7c5b-48e7-a4f5-608637d5b334",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "907dd991-01d5-44c2-ae7f-5c256b28fe71",
+          "tipo": "Personales",
+          "descripcion": "Operación de apendicitis en la infancia",
+          "fecha_inicio": "2022-07-15T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "Z98.8"
+        },
+        {
+          "id_antecedente": "be429b86-7398-4382-b322-aa6f442832dd",
+          "tipo": "Personales",
+          "descripcion": "Alergia a la penicilina",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "Z88.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "6db7c746-696c-46f4-b1da-f416e5c9b47e",
+          "cie_10": "I25.1",
+          "cie_11": "Desconocido",
+          "descripcion": "Enfermedad coronaria",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "02a38144-ab60-4851-a412-e5d66540fe22",
+          "nombre_tratamiento": "Tratamiento para Enfermedad coronaria",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "8d8fb9b2-3d5a-43e0-8636-6dcf28a028aa",
+              "nombre_comercial": "Aspirina",
+              "principio_activo": "Aspirina",
+              "dosis": "100mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "5c7a6698-1209-4144-930f-33484fdb5084",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00126",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "c92f54f9-0640-46b3-9585-da17be0bbb6f",
+          "resumen_clinico": "Paciente evaluado por Enfermedad coronaria."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "5192b069-7f76-421f-8591-d2d1110bbc0b",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00126",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "99b8b3c7-42b4-4468-ac4b-f74a740023f9",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "9bb80ff6-79b9-4eda-aab9-7a4fd62a8b60",
+            "valor": 60.76705286554236,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "e4c10211-a22e-4310-a027-bf76763cecab",
+        "id_proposito": "22bf4c53-15db-44bc-b820-20be0f4d8b34",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "3988afdc-e2ba-4051-b777-201291f90021",
+        "firma_digital": "sig_7ba5eb4d69721577"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "792cc9b9-5301-469b-aafe-acbbe1cb86b6",
+        "id_usuario_acceso": "496bd237-87b1-4dc9-958f-cebf42a0f135",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00127",
+    "nif_dni": "71583092P",
+    "nombre_completo": "Andrés Fernández Prieto",
+    "fecha_nacimiento": "1966-07-15",
+    "genero": "male",
+    "grupo_sanguineo": "AB-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000008",
+    "email": "paciente.patient-gx-00127@example.com",
+    "direccion_fisica": "Dirección ficticia 92",
+    "id_seguro_social": "ES26849788",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "4857e8c2-a003-41e3-9b37-7d61f29c338f",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "2c6ebee4-dc9c-48c8-8e2f-d2203df9eca4",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "0b2973ad-dac1-431f-ae3b-eb1b096391bd",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "F17.200"
+        },
+        {
+          "id_antecedente": "dd868ccf-f2c5-4fc2-b23b-29fd8141b8ec",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2019-07-16T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "M81.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "457da71b-461f-478f-8f14-667e222653ab",
+          "cie_10": "J44.9",
+          "cie_11": "Desconocido",
+          "descripcion": "EPOC",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "1e6d4997-235a-4939-8524-77045501ceb3",
+          "nombre_tratamiento": "Tratamiento para EPOC",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "e4f79719-7f98-4311-aff4-929c7770c619",
+              "nombre_comercial": "Tiotropio",
+              "principio_activo": "Tiotropio",
+              "dosis": "2.5mcg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "7c08c768-380a-40d3-ad6b-667722d66cf3",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00127",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "a7dbbd34-0009-4d83-af2c-20b33a3c6d66",
+          "resumen_clinico": "Paciente evaluado por EPOC."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "de0f1703-a365-4b2c-b384-23449e6bfe70",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00127",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "c3f6d9c0-e2c4-4459-8fc1-0de09ebe4581",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "48d32043-67a5-4efb-8eec-cf5a16522563",
+            "valor": 69.89886503125481,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "dc0da375-2d17-4236-a5e6-848774df9e3b",
+        "id_proposito": "77deee65-e387-47e2-9bd2-68c39c79ca38",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "2b58e11d-3c18-4ff5-b459-d941d0ae1bee",
+        "firma_digital": "sig_c9a893043d5d2f1f"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "13106c21-57c9-4d25-b4cd-fca94a1ee217",
+        "id_usuario_acceso": "a57dec40-cc24-45b2-8caf-f25c9ecbe437",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00128",
+    "nif_dni": "57694778Z",
+    "nombre_completo": "Sofía Díaz Prieto",
+    "fecha_nacimiento": "1967-08-16",
+    "genero": "female",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000003",
+    "email": "paciente.patient-gx-00128@example.com",
+    "direccion_fisica": "Dirección ficticia 27",
+    "id_seguro_social": "ES43426077",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "41127b23-8c2e-4236-80cc-ae9e48f8a76b",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "acd685a1-2820-4cb7-b0b2-10f9109cd210",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "6bb909a5-3aa5-42bc-8107-72f9c2f9b7b3",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "b70b0782-d484-476f-9313-7adce6ec4746",
+          "cie_10": "I25.1",
+          "cie_11": "Desconocido",
+          "descripcion": "Enfermedad coronaria",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "efe3ce7d-b45b-4454-bd32-fa2253c45319",
+          "nombre_tratamiento": "Tratamiento para Enfermedad coronaria",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "84d8ef2d-0958-4902-836c-c216cc02bca8",
+              "nombre_comercial": "Aspirina",
+              "principio_activo": "Aspirina",
+              "dosis": "100mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "8440647c-7f18-48af-979b-83be95152bf6",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00128",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "d16d4e9e-371b-48a8-84df-58d2d31cfaa1",
+          "resumen_clinico": "Paciente evaluado por Enfermedad coronaria."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "2bc3cfb5-3c0e-4170-92aa-539dc59352a3",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00128",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "e045d021-4d10-47d3-8f6a-bc5e9088b4f3",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "d21e5a36-98a4-486f-98b4-6fd4d587af7c",
+            "valor": 92.3857338932052,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "b2e93616-0a32-432a-bb75-d207c0c21b23",
+        "id_proposito": "7ad3a94d-9a9a-450a-bbfa-a8ab8e1fd266",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "3f722207-a03f-4dca-a198-72bcaf9632d6",
+        "firma_digital": "sig_82a49c14f8ad9053"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "54217175-4b67-4712-9ae2-66ebd65f69c4",
+        "id_usuario_acceso": "0989749c-d69c-42a9-9a81-306441b5e382",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00129",
+    "nif_dni": "29601089C",
+    "nombre_completo": "Álvaro Álvarez Prieto",
+    "fecha_nacimiento": "1968-09-17",
+    "genero": "male",
+    "grupo_sanguineo": "B-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000000",
+    "email": "paciente.patient-gx-00129@example.com",
+    "direccion_fisica": "Dirección ficticia 24",
+    "id_seguro_social": "ES98249099",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "2bed6002-b42e-4fc7-8a4a-d77a435f9a89",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "8605464c-02d7-49c0-b061-1502d2680567",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "be5e8f02-7570-4d5b-a45c-c2d68a9bc362",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "8ce01a74-beee-4fdb-a49c-686a326a6a8e",
+          "cie_10": "J44.9",
+          "cie_11": "Desconocido",
+          "descripcion": "EPOC",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "6551a820-471a-473c-a747-565acf16e09c",
+          "nombre_tratamiento": "Tratamiento para EPOC",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "8043e94e-7237-4df7-ba63-6feb703f123d",
+              "nombre_comercial": "Tiotropio",
+              "principio_activo": "Tiotropio",
+              "dosis": "2.5mcg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "0e2bd2dd-2430-465e-a30d-986c27add425",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00129",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "33cbbb10-99e2-4aa9-92a9-79313446d255",
+          "resumen_clinico": "Paciente evaluado por EPOC."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "ff5c0203-6a91-4212-8c2b-f666b20b871f",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00129",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "7d038bcf-3723-46d3-a727-34fb9dd6aaf4",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "8cff6e3c-4ef4-4d52-8834-25f7a41144d6",
+            "valor": 96.70664320528766,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "e47d290d-621b-4586-8401-cd0ffbdcf5d0",
+        "id_proposito": "552c6941-28b8-458a-bcef-04f206f902ae",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "148726f5-0ba1-4479-81ac-9dfef16786f7",
+        "firma_digital": "sig_702a3ea699a53c23"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "6f02cc9a-aa44-4fe9-b573-6562ee558f32",
+        "id_usuario_acceso": "634d029c-e4ac-43cb-a4a0-26c80d5b2166",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00130",
+    "nif_dni": "49720952N",
+    "nombre_completo": "Nuria Romero Prieto",
+    "fecha_nacimiento": "1969-10-18",
+    "genero": "female",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000001",
+    "email": "paciente.patient-gx-00130@example.com",
+    "direccion_fisica": "Dirección ficticia 53",
+    "id_seguro_social": "ES77917413",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "58a8ae84-4fd5-40ca-8486-16ead1c37006",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "b576c08d-11d2-480f-99a1-5dd8a87e6963",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "913ef8d3-b613-47a4-b7b4-4abc1a224d0f",
+          "tipo": "Personales",
+          "descripcion": "Colesterol alto hace 5 años",
+          "fecha_inicio": "2021-07-15T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "E78.0"
+        },
+        {
+          "id_antecedente": "9cffc065-686c-4aba-9e8f-b56f4f3cdb53",
+          "tipo": "Personales",
+          "descripcion": "Alergia a la penicilina",
+          "fecha_inicio": "2023-07-15T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "Z88.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "c31c0c11-04d3-43d3-bb79-4c1b5d5c68cc",
+          "cie_10": "M81.0",
+          "cie_11": "Desconocido",
+          "descripcion": "Osteoporosis",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "c0c68b91-2791-468d-923e-3f338b0189ed",
+          "nombre_tratamiento": "Tratamiento para Osteoporosis",
+          "indicaciones": "Semanal",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "df64489f-0eb6-481b-8352-713107f4aca9",
+              "nombre_comercial": "Ácido Alendrónico",
+              "principio_activo": "Ácido Alendrónico",
+              "dosis": "70mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "0c099e0e-7b25-4ef7-b47f-412658aa01f1",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00130",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "709251a8-1dfb-4578-a194-5dfb4f7f9818",
+          "resumen_clinico": "Paciente evaluado por Osteoporosis."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "1086daa4-66a1-401d-81e4-7cc8623cdd82",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00130",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "d94b1e6a-130d-4219-abdb-722f6814261b",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "ed10d3f4-a324-4d30-8816-3c5b597587d8",
+            "valor": 69.21584472559466,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "b76d75bd-13fd-462f-8073-13ee83a7e8d9",
+        "id_proposito": "d6aa0db3-9db6-4541-8d52-2139a1bf1dd1",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "c80705fb-5893-4de4-9c6a-ec70c2c4583c",
+        "firma_digital": "sig_65cff2f44feec2e9"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "dcfe7e2d-fc41-4430-af8f-a7060c744d24",
+        "id_usuario_acceso": "c5633667-ea71-40d5-8897-d9fb3ced3f1a",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00131",
+    "nif_dni": "20727933B",
+    "nombre_completo": "Juan Navarro Prieto",
+    "fecha_nacimiento": "1970-11-19",
+    "genero": "male",
+    "grupo_sanguineo": "AB+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000006",
+    "email": "paciente.patient-gx-00131@example.com",
+    "direccion_fisica": "Dirección ficticia 6",
+    "id_seguro_social": "ES12037428",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "01aadf92-a275-43be-b5be-dfb3d2236450",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "03962571-e8e2-4dd0-a5fe-7e08cd54abe5",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "7b23e848-a6e6-4ec9-aa5d-59dc9b2d7d31",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "49d71066-51e3-4341-ac8b-b865338dc3ac",
+          "cie_10": "M81.0",
+          "cie_11": "Desconocido",
+          "descripcion": "Osteoporosis",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "560d7ce3-72d1-449f-aa8f-ee4b6d46f857",
+          "nombre_tratamiento": "Tratamiento para Osteoporosis",
+          "indicaciones": "Semanal",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "d53b2d82-35b4-4fef-878b-8ce12953846f",
+              "nombre_comercial": "Ácido Alendrónico",
+              "principio_activo": "Ácido Alendrónico",
+              "dosis": "70mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "82e5273d-1a2d-48e8-858c-2fbf41404de0",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00131",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "7e0d344a-f54c-43cf-86bb-5fe33dc37409",
+          "resumen_clinico": "Paciente evaluado por Osteoporosis."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "f697391f-f6ee-4f4b-8e58-bd8865c2bff8",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00131",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "f430a0e2-48c4-425c-94a0-f05dcd5195e8",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "d4f1c808-8d75-490d-a096-ccfc7b9869de",
+            "valor": 91.31803318740914,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "f70818a1-6d46-4b4b-94b6-9b7f1d11a4b9",
+        "id_proposito": "9417999d-3a77-4f30-8936-8ccb38b203de",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "33a6ba4a-e168-4c59-ac88-e439a19e1968",
+        "firma_digital": "sig_2be6d0a67e68154e"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "6a402b6d-98d6-4119-b31b-2e2ba388f80a",
+        "id_usuario_acceso": "43a25876-73f1-4eb9-b571-8e6c1d69f7ed",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00132",
+    "nif_dni": "19900927Q",
+    "nombre_completo": "Carmen Torres Prieto",
+    "fecha_nacimiento": "1971-12-20",
+    "genero": "female",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000005",
+    "email": "paciente.patient-gx-00132@example.com",
+    "direccion_fisica": "Dirección ficticia 4",
+    "id_seguro_social": "ES73565676",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "f7e38c1f-adb3-4d77-9ef1-00f32dea90c8",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "8b416974-a796-4295-90db-a8ec142f9c00",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "aa1e002b-3bf5-40e1-894f-9e763200ee46",
+          "tipo": "Familiares",
+          "descripcion": "Diabetes materna",
+          "fecha_inicio": "2006-07-19T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "E11.9"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "7ffb6356-d222-4f9b-b1ed-7a6a67b891af",
+          "cie_10": "M81.0",
+          "cie_11": "Desconocido",
+          "descripcion": "Osteoporosis",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "db6ddd9c-3d31-4cbf-9560-a94293618054",
+          "nombre_tratamiento": "Tratamiento para Osteoporosis",
+          "indicaciones": "Semanal",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "5c40a890-f91e-4d34-9ab7-4070257d08f5",
+              "nombre_comercial": "Ácido Alendrónico",
+              "principio_activo": "Ácido Alendrónico",
+              "dosis": "70mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "8eb83e1e-5e09-429e-b0ee-88d899ae8c87",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00132",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "838d2361-69c4-43b1-a7b9-58d6f724e214",
+          "resumen_clinico": "Paciente evaluado por Osteoporosis."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "148d5623-a690-44e6-8446-49d6e71c02dd",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00132",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "a4f7148d-2304-4295-886c-be85bfdd8738",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "db9cdc42-3534-4e90-be30-b58623d1ea60",
+            "valor": 89.25332757719664,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "e1e54828-2efe-410a-ab21-8b9e35ed96de",
+        "id_proposito": "ae9a7baf-21d8-4529-92df-d1d295e00a5c",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "652bd4a6-9b75-4ecc-aab7-bcc245acd170",
+        "firma_digital": "sig_6b4075336729f2ef"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "109725aa-a738-41f9-bc1c-085fbc749589",
+        "id_usuario_acceso": "09afe5b4-68dd-4fd5-85f0-56a55a1d5459",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00133",
+    "nif_dni": "41671949C",
+    "nombre_completo": "Miguel Ruiz Prieto",
+    "fecha_nacimiento": "1972-01-21",
+    "genero": "male",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000003",
+    "email": "paciente.patient-gx-00133@example.com",
+    "direccion_fisica": "Dirección ficticia 93",
+    "id_seguro_social": "ES99372223",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "7dba173b-32f7-4004-a46f-032a7fd5b418",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "c831ae8e-4110-47fe-a1c7-3354373dcd54",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "453c51de-57ea-4fcf-8e9c-be5a2b22fbf2",
+          "tipo": "Personales",
+          "descripcion": "Asma en la infancia",
+          "fecha_inicio": "2016-07-16T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "J45.9"
+        },
+        {
+          "id_antecedente": "ed0491a6-c51f-448c-b8ac-9449c2c79e16",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2020-07-15T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "M81.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "06c2b0a4-2345-404f-9814-e32a085c267a",
+          "cie_10": "I25.1",
+          "cie_11": "Desconocido",
+          "descripcion": "Enfermedad coronaria",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "9e529e01-f8e9-4fd2-aaf1-a537585ec4c0",
+          "nombre_tratamiento": "Tratamiento para Enfermedad coronaria",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "e0c5b0cb-3ef2-4795-9924-b2b6d45fe98e",
+              "nombre_comercial": "Aspirina",
+              "principio_activo": "Aspirina",
+              "dosis": "100mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "cfba6818-f164-4f2f-8d33-78a2932f3df1",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00133",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "6949ea10-4ef5-453b-9883-ac154f571adc",
+          "resumen_clinico": "Paciente evaluado por Enfermedad coronaria."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "14ceca51-0ce0-4eee-8189-22ac85ec99f1",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00133",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "a114ad40-a02e-49fd-bea5-c6de6f61c88b",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "9375c3e1-e3ea-4f90-aa31-945dcff887b5",
+            "valor": 63.05656021141458,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "74613680-7b44-4dd7-89d0-a33deed15ac1",
+        "id_proposito": "6523d72f-3743-48dd-8d0f-8198afab5f18",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "825fa7a8-67cb-4c2d-8376-ac25320de440",
+        "firma_digital": "sig_79be6655593af5b3"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "29881c32-bcd5-4804-953f-fe574f16c311",
+        "id_usuario_acceso": "e98f1999-bf9d-4810-94b4-063166eb78b6",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00134",
+    "nif_dni": "17961739G",
+    "nombre_completo": "Ana Vega Prieto",
+    "fecha_nacimiento": "1973-02-22",
+    "genero": "female",
+    "grupo_sanguineo": "A-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000004",
+    "email": "paciente.patient-gx-00134@example.com",
+    "direccion_fisica": "Dirección ficticia 93",
+    "id_seguro_social": "ES28634784",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "6b399ebc-e9df-44e0-b9d0-7b392199c35b",
+      "fecha_creacion": "2025-07-14T05:42:58.963Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.963Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "ffd418b5-4f04-4dbb-993e-f03609f2083f",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "21312fac-f961-4ed3-a3cc-eb755aa089bf",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2010-07-18T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "F17.200"
+        },
+        {
+          "id_antecedente": "b28b20e9-4147-424b-9438-36a9603c473e",
+          "tipo": "Personales",
+          "descripcion": "Operación de apendicitis en la infancia",
+          "fecha_inicio": "2012-07-17T05:42:58.963Z",
+          "es_activo": false,
+          "cie_10": "Z98.8"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "5de21e43-c159-4126-9efb-7e9a03a76190",
+          "cie_10": "J44.9",
+          "cie_11": "Desconocido",
+          "descripcion": "EPOC",
+          "fecha_diagnostico": "2025-07-14T05:42:58.963Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "e1646996-2738-4a48-8259-6ba369a83f76",
+          "nombre_tratamiento": "Tratamiento para EPOC",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.963Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "2a2d8a17-860f-457a-821b-356758b68a4a",
+              "nombre_comercial": "Tiotropio",
+              "principio_activo": "Tiotropio",
+              "dosis": "2.5mcg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.963Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "1e091dad-09a9-4a4e-b91e-6f57ab698a00",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00134",
+          "fecha_emision": "2026-07-14T05:42:58.963Z",
+          "id_medico_autor": "1d3b55e5-f465-4baf-bbc0-eca9f1d1cf0e",
+          "resumen_clinico": "Paciente evaluado por EPOC."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "5026acb9-c01e-45a7-a822-1353acb74a82",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.963Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00134",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "2c346fa5-ef8a-4853-bf72-08bbf0c3085d",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.963Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "59022b8b-bab3-4ddc-ac26-1f60bf53b2b4",
+            "valor": 92.86812902076556,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.963Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "4376d83d-455e-4fc1-8280-32aecb23a48c",
+        "id_proposito": "2076f526-6535-41a2-b74f-baff961f62f6",
+        "fecha_inicio": "2025-07-14T05:42:58.963Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.963Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "d97f85e3-df49-49ed-96dd-1bbc84cfbc75",
+        "firma_digital": "sig_cc78e737e95c7089"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "a70887a1-9934-4030-aac4-7170aa6d7360",
+        "id_usuario_acceso": "af10390e-eeb6-464f-82f7-740f14665c42",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.963Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00135",
+    "nif_dni": "69455133D",
+    "nombre_completo": "Pablo Molina Prieto",
+    "fecha_nacimiento": "1974-03-23",
+    "genero": "male",
+    "grupo_sanguineo": "O-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000003",
+    "email": "paciente.patient-gx-00135@example.com",
+    "direccion_fisica": "Dirección ficticia 52",
+    "id_seguro_social": "ES35194045",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "cabc0e55-5050-4a15-9eda-72ccdc3d1c3d",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "bb434374-4b42-478e-b827-4aeb6aba46a3",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "970e46c1-20b6-4767-8d16-47dadbb98dcb",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2015-07-17T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "M81.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "e184cfdc-533b-4dda-b1b6-03c95ddb9361",
+          "cie_10": "I25.1",
+          "cie_11": "Desconocido",
+          "descripcion": "Enfermedad coronaria",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "a86fca54-34a6-4416-a625-767cfe4fee60",
+          "nombre_tratamiento": "Tratamiento para Enfermedad coronaria",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "91cdf383-d7e4-43a5-9bd6-b0679b931ce5",
+              "nombre_comercial": "Aspirina",
+              "principio_activo": "Aspirina",
+              "dosis": "100mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "fa0d4f3a-069a-44d2-b8b7-be7133fdb627",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00135",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "bf865cab-05ae-46c5-aa48-85c656503b9b",
+          "resumen_clinico": "Paciente evaluado por Enfermedad coronaria."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "b986cb37-1d01-465c-be7f-ed9d0d224e67",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00135",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "2a072923-022f-4766-8286-193c77df2437",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "f67fab7a-eba3-4110-8dfa-6ca0e0ac36b5",
+            "valor": 82.04796312655107,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "6f97be7a-c6ab-4b4e-8dbb-5d073a522536",
+        "id_proposito": "68717756-ed09-4c6c-af68-709205312705",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "fa559507-f6e0-4b95-bc33-b43d303c85ee",
+        "firma_digital": "sig_c0f7ced9fd41bacf"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "f00f2ae8-44be-4f24-b6ea-6f6461c088b2",
+        "id_usuario_acceso": "e6d2e418-7985-403d-9803-0caa44f4c6a8",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00136",
+    "nif_dni": "53274407J",
+    "nombre_completo": "Laura Ortega Prieto",
+    "fecha_nacimiento": "1975-04-24",
+    "genero": "female",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000001",
+    "email": "paciente.patient-gx-00136@example.com",
+    "direccion_fisica": "Dirección ficticia 99",
+    "id_seguro_social": "ES20208882",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "d03de2b0-ac9a-487b-8cb6-19b0598e3a25",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "82ed9a6f-7c5d-4aad-88c0-dd24825e5278",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "4a8aab2c-53f6-4497-998c-d1636d784d21",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2013-07-17T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "M81.0"
+        },
+        {
+          "id_antecedente": "1c7a38ba-0801-43ba-9b35-820994f8647c",
+          "tipo": "Personales",
+          "descripcion": "Alergia a la penicilina",
+          "fecha_inicio": "2019-07-16T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "Z88.0"
+        },
+        {
+          "id_antecedente": "90503633-996b-4e3f-bcf4-cfd9e5fc7389",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2009-07-18T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "F17.200"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "e6535810-7474-44b7-ae0d-e4cd09c8fed8",
+          "cie_10": "M81.0",
+          "cie_11": "Desconocido",
+          "descripcion": "Osteoporosis",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "f44bfcba-5c6f-449f-9665-0a0b09c5217b",
+          "nombre_tratamiento": "Tratamiento para Osteoporosis",
+          "indicaciones": "Semanal",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "6496ea69-1fb3-448c-9778-054631689ba5",
+              "nombre_comercial": "Ácido Alendrónico",
+              "principio_activo": "Ácido Alendrónico",
+              "dosis": "70mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "0e22bddc-a06b-4d68-9447-a474ad45f313",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00136",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "aeb3a7b1-ac9e-481c-8a67-84f1b8b0d5b1",
+          "resumen_clinico": "Paciente evaluado por Osteoporosis."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "4c21c971-9414-4c6f-83f4-9026838d7043",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00136",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "31f52d2c-7930-4ee5-841a-ebdd9ea9fbcd",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "62836ec9-9b5c-4f2e-af08-e436202e7e87",
+            "valor": 96.80131406965569,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "8e6f0bf0-b128-49da-9e97-206056f41118",
+        "id_proposito": "462da8f2-3bf9-44db-bd83-986cc22c5c50",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "a738473e-81b6-4b9e-84ef-c9694b594c00",
+        "firma_digital": "sig_5feec777c1ac3432"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "67e24e84-76d3-4033-8f2a-6c5a34519f17",
+        "id_usuario_acceso": "f2c18567-912b-4c00-9bc2-e446f55b8781",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00137",
+    "nif_dni": "97857317E",
+    "nombre_completo": "Andrés Castro Prieto",
+    "fecha_nacimiento": "1976-05-25",
+    "genero": "male",
+    "grupo_sanguineo": "AB-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000006",
+    "email": "paciente.patient-gx-00137@example.com",
+    "direccion_fisica": "Dirección ficticia 81",
+    "id_seguro_social": "ES35262919",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "6e5fcc91-a34d-4740-a144-d61327967e5a",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "8eca6e8e-a918-4198-b3fc-2e8d135bbf7a",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "28337763-6186-46c3-bd20-1dea13f0983f",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "f0a8c4d4-a5d7-49e5-a7ba-521bc8cb1277",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "20cf5d1c-dc29-4748-b825-361235800379",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "6e15f7fe-b009-46aa-a47d-82b4ad7e5089",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "bdd15b77-9b9b-415f-9a14-523f28c2b22a",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00137",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "1f3028c2-3b12-430c-ac41-6607939b5bf0",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "d186aa9f-ea69-4e65-92f4-f1bf355a0859",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00137",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "d6e46ded-7b28-460a-aa67-ebc31d336bae",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "98e41602-26c8-42a0-b402-ad93cd227a2e",
+            "valor": 78.9030749392683,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "6bc4831e-c4cb-4aba-8916-5b3651ad115e",
+        "id_proposito": "adcbd699-0321-4d0f-9385-125c415a7574",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "74d86bd4-cad4-431c-af69-79d6666a89de",
+        "firma_digital": "sig_aabe6326ad68045b"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "7f0801f9-4aa5-4f2a-b058-6e67e8ba47ef",
+        "id_usuario_acceso": "10fbf0b3-5ade-40d1-b559-afd8512c337c",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00138",
+    "nif_dni": "25708770Z",
+    "nombre_completo": "Sofía Delgado Prieto",
+    "fecha_nacimiento": "1977-06-26",
+    "genero": "female",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000005",
+    "email": "paciente.patient-gx-00138@example.com",
+    "direccion_fisica": "Dirección ficticia 17",
+    "id_seguro_social": "ES71164036",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "b251b7e6-7223-4027-a3f0-3f18e6f50daa",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "ac212187-c78e-4d1f-8025-27b7b1202940",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "92c0fa01-0242-4599-aae2-5a0017cb07a9",
+          "tipo": "Personales",
+          "descripcion": "Asma en la infancia",
+          "fecha_inicio": "2016-07-16T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "J45.9"
+        },
+        {
+          "id_antecedente": "a8d3f219-4dde-4828-9cb1-01e1af179fd4",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2008-07-18T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "F17.200"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "86df3839-b6c8-4b53-bba0-c615b728ded4",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "09d3fe0f-f6c7-4a01-99d9-6bf55edba437",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "0d759a58-78d4-470f-b285-55bd350334a1",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "5a3b3c31-e1f7-448d-8793-ed6ad1095646",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00138",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "f597674d-6cc3-4271-b629-3c44534981db",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "df8d16ab-ee12-4b2a-adbf-788396d63c23",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00138",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "1b6d9054-37bf-473e-a614-8e8612075ecb",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "a4eb9327-992a-4421-853d-df59e1577c9e",
+            "valor": 70.77179740683623,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "13098820-dc00-416f-b25e-10c17909fc16",
+        "id_proposito": "67675c45-eb76-4edc-b8f1-15fa28da0564",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "5a207a70-eadb-4989-af8f-b075565b4e74",
+        "firma_digital": "sig_db13dc59762894ea"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "0a00965c-4fde-4ed1-b859-19ed6e941206",
+        "id_usuario_acceso": "8aa02b77-553a-4721-9bfe-95799c6bf82d",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00139",
+    "nif_dni": "84733838K",
+    "nombre_completo": "Álvaro Serrano Prieto",
+    "fecha_nacimiento": "1978-07-27",
+    "genero": "male",
+    "grupo_sanguineo": "AB+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000002",
+    "email": "paciente.patient-gx-00139@example.com",
+    "direccion_fisica": "Dirección ficticia 32",
+    "id_seguro_social": "ES11127877",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "1ff17675-4867-4d47-90f1-387abcbe7df3",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "7afab35e-c158-4a91-ae44-edc7f507918d",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "4488ab79-8bbb-406e-8727-9659d8b3780d",
+          "tipo": "Personales",
+          "descripcion": "Colesterol alto hace 5 años",
+          "fecha_inicio": "2008-07-18T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "E78.0"
+        },
+        {
+          "id_antecedente": "b45ea42c-9c87-4ca3-9ec2-84a2399cd783",
+          "tipo": "Personales",
+          "descripcion": "Alergia a la penicilina",
+          "fecha_inicio": "2022-07-15T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "Z88.0"
+        },
+        {
+          "id_antecedente": "7ed5b60c-34c7-45f0-8dfa-348feab5a45d",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2006-07-19T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "M81.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "f1e1a202-e0d1-4b8b-9394-9381915192a2",
+          "cie_10": "I10",
+          "cie_11": "Desconocido",
+          "descripcion": "Hipertensión",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "a010f91c-702b-43fe-8a47-a2d6e7287ddd",
+          "nombre_tratamiento": "Tratamiento para Hipertensión",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "b86e76bf-bcff-4cd1-9a8c-0442bd9f2de7",
+              "nombre_comercial": "Enalapril",
+              "principio_activo": "Enalapril",
+              "dosis": "20mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "8269753a-9f2c-4350-bece-a5094c9d0336",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00139",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "ed464028-9c29-492a-a7c3-bdf919fa3986",
+          "resumen_clinico": "Paciente evaluado por Hipertensión."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "659c4163-af04-42b3-8198-02ee341cbffb",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00139",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "c0b1e259-df39-48c2-84cc-b31a8bc64e36",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "3f4b6734-1222-4cda-b353-8bc0b7b39cd0",
+            "valor": 83.34305687304479,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "9feaa543-21e8-4567-b270-325ea00d63d8",
+        "id_proposito": "308d9f39-0bdb-45df-ad23-03dc77035147",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "20cbce02-a362-4283-9bf9-57971fe846aa",
+        "firma_digital": "sig_1a0dcd6f5b187aed"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "c395bf3d-7081-46af-9601-2451d9a6cb36",
+        "id_usuario_acceso": "8f135e27-90f8-450c-a77b-ab626a50cea0",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00140",
+    "nif_dni": "80564408P",
+    "nombre_completo": "Nuria Cortés Prieto",
+    "fecha_nacimiento": "1979-08-28",
+    "genero": "female",
+    "grupo_sanguineo": "A+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000002",
+    "email": "paciente.patient-gx-00140@example.com",
+    "direccion_fisica": "Dirección ficticia 88",
+    "id_seguro_social": "ES97317506",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "bd690ae7-db0a-44ad-b848-1e0da5246341",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "1a034814-5383-4fc8-b257-e43e9ea9c41c",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "299dbb51-fcd1-4b83-ba1b-fa1c3a6021c9",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "67474765-1652-4e42-a089-2593dd7819a0",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "c000ca00-8bf2-4a02-88a2-e4f272eb05fa",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "63ef7ca2-fe8b-4846-88a7-5fcd6de8812e",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "a9246eda-d9bc-49fb-8d6d-868e7effabed",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00140",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "b4701dd8-94f2-45a2-a786-4d14fc63a2fc",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "f618359e-0468-4a32-b642-c99874cc3ddc",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00140",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "e8b88f36-b6a9-473c-bee7-2ab6ce8031ee",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "1a9153db-5a13-48ae-825e-bc3aa456d840",
+            "valor": 98.728547958843,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "0488bf48-da39-4d72-aa52-76fb589d1331",
+        "id_proposito": "4104c143-e955-4e93-962a-29bb3c471b2d",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "4be9b6db-125e-49f0-aa65-cfc5d6cdb9ab",
+        "firma_digital": "sig_e58d1a60695ecbac"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "d5f803fe-0b54-4e17-b55d-d21d17f34654",
+        "id_usuario_acceso": "2f001d9e-7e01-4770-97ad-31c3b8b99549",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00141",
+    "nif_dni": "70032116Z",
+    "nombre_completo": "Juan García Santos",
+    "fecha_nacimiento": "1980-09-01",
+    "genero": "male",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000000",
+    "email": "paciente.patient-gx-00141@example.com",
+    "direccion_fisica": "Dirección ficticia 76",
+    "id_seguro_social": "ES38375624",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "48f01122-5b8f-4813-9017-2790ce6ac6db",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "92463334-8dd7-4515-b66d-021d779ffa7e",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "4375c13c-cc6c-422c-8e6c-ad1aa6acf13d",
+          "tipo": "Familiares",
+          "descripcion": "Antecedentes de hipertensión paterna",
+          "fecha_inicio": "2020-07-15T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "I10"
+        },
+        {
+          "id_antecedente": "b7635dcc-28ac-4af7-8275-476141bb535c",
+          "tipo": "Personales",
+          "descripcion": "Operación de apendicitis en la infancia",
+          "fecha_inicio": "2013-07-17T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "Z98.8"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "3d25a170-013f-4201-a531-5c3c8fb7aa24",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "19a90cc4-4553-4508-8907-2d860581be3b",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "3f1dc10f-5e79-4350-a3e9-8b7b7fae899d",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "b21b97f5-b939-47a6-9d8a-09246f829794",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00141",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "0b45e644-28c9-4fe6-b4a8-badb115484be",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "05f574e7-4b01-48d5-97e8-74063469737f",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00141",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "a540c7e4-47b9-4db7-a3ba-b08423ff8f99",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "69f628b3-02bc-48b3-a842-29924b2b01ba",
+            "valor": 83.38375788358871,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "7c945609-c386-4f76-8ee2-4037ca76defa",
+        "id_proposito": "e32a2e17-272a-4637-bfb0-343a6d350231",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "f9c7a6f3-7f8d-4aa3-89df-90510faae3de",
+        "firma_digital": "sig_142ef862506f9bc2"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "2a700915-be81-4d60-bf96-e7ecac394b10",
+        "id_usuario_acceso": "f6887eff-50df-4215-a2ef-f6433766bf7a",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00142",
+    "nif_dni": "40681590H",
+    "nombre_completo": "Carmen López Santos",
+    "fecha_nacimiento": "1981-10-02",
+    "genero": "female",
+    "grupo_sanguineo": "AB-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000004",
+    "email": "paciente.patient-gx-00142@example.com",
+    "direccion_fisica": "Dirección ficticia 90",
+    "id_seguro_social": "ES94527141",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "f6e8b605-3089-490d-9ae6-78ad8ff982cc",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "873aefc4-d4f3-4c00-8638-1a87c849ebf7",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "e3a39aa5-19d4-4b6b-ad5c-645c9ebc2f1c",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2007-07-19T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "F17.200"
+        },
+        {
+          "id_antecedente": "13c326ab-6400-4314-abe5-7fa957daa9f7",
+          "tipo": "Familiares",
+          "descripcion": "Diabetes materna",
+          "fecha_inicio": "2013-07-17T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "E11.9"
+        },
+        {
+          "id_antecedente": "a8d2f8e7-369c-4d96-96a0-f028d4cf5d79",
+          "tipo": "Familiares",
+          "descripcion": "Antecedentes de hipertensión paterna",
+          "fecha_inicio": "2016-07-16T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "I10"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "3e532a03-1ba9-4b03-ba0c-46caab3202f0",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "9c446639-d174-4f8a-9713-bd2b03444ad6",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "f620a765-416c-4aba-a086-18977f43ff89",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "34b11bd2-7ac6-4332-a6b5-2bcb0b286427",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00142",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "e7647d3c-ce5d-4929-9e2e-9a2c971f6df2",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "57e6d4a1-fbb5-4234-b824-0940810d5c60",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00142",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "5981c2e5-27d0-4f59-baa2-44ace5e54125",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "f3d110a2-6dfe-4836-9ef8-7d08b2c08b24",
+            "valor": 92.04566920101055,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "f3f0a763-a0c0-47f7-8632-c381f969c310",
+        "id_proposito": "5744490a-581b-4f57-94bc-96da714dd7e1",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "ba624a0a-49ee-4d71-bbbb-5e384da2a03d",
+        "firma_digital": "sig_4b8526aa0a563da5"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "45c4583b-ef62-44f1-b74d-bef3510d0f16",
+        "id_usuario_acceso": "edbe298b-c2d1-4984-a6f8-7ae6cae76869",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00143",
+    "nif_dni": "72299321V",
+    "nombre_completo": "Miguel Martínez Santos",
+    "fecha_nacimiento": "1982-11-03",
+    "genero": "male",
+    "grupo_sanguineo": "O-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000005",
+    "email": "paciente.patient-gx-00143@example.com",
+    "direccion_fisica": "Dirección ficticia 97",
+    "id_seguro_social": "ES28844072",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "421c2262-235b-446c-8e55-7bdec5952e29",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "04d865a4-59df-40ec-bae5-5b7f796490bd",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "ad004ecd-4ca9-41dd-8a54-714cec4c2c4d",
+          "tipo": "Personales",
+          "descripcion": "Colesterol alto hace 5 años",
+          "fecha_inicio": "2011-07-18T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "E78.0"
+        },
+        {
+          "id_antecedente": "958399db-eb8a-4363-833e-7ddcefa6008e",
+          "tipo": "Personales",
+          "descripcion": "Operación de apendicitis en la infancia",
+          "fecha_inicio": "2011-07-18T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z98.8"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "fa6b6da1-48cd-4c98-a86f-25cf87493037",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "be91d28d-ef5e-427d-9d71-774eda454ece",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "dca995fc-ec50-4b3f-89d6-3bc7473c58c1",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "d7aacae6-06db-4a73-b3d5-d4c834b8d88e",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00143",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "f547b7ab-cf80-44f1-a56c-26a939f09ec3",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "8f1e33c6-00c1-4596-917a-6190cae7354d",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00143",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "d2612ce4-ffba-4912-9d0d-4b98c4868267",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "c82f95c6-eaf4-4192-96df-77ef014ef0b2",
+            "valor": 71.59428696280024,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "3f21791e-98ed-4501-a4c1-2f7b91e8c90e",
+        "id_proposito": "5db61922-ccaf-49c3-9678-74466516f2c6",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "4ddb2321-02f0-44c4-8dc9-60f31c55d77f",
+        "firma_digital": "sig_edefa0fcec795ce3"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "932425b2-2fc3-4d04-a000-93e523d76a1a",
+        "id_usuario_acceso": "82af772a-7170-4052-920f-18470a29e9cd",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00144",
+    "nif_dni": "74153832S",
+    "nombre_completo": "Ana Sánchez Santos",
+    "fecha_nacimiento": "1983-12-04",
+    "genero": "female",
+    "grupo_sanguineo": "B-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000001",
+    "email": "paciente.patient-gx-00144@example.com",
+    "direccion_fisica": "Dirección ficticia 0",
+    "id_seguro_social": "ES14470267",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "6170c983-8047-409f-8a3b-c7e6bdce6d20",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "379802de-320a-4c4f-a387-14e9d6eb6c01",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "322ac577-18b8-42c4-9f7a-d2d64229f46d",
+          "tipo": "Familiares",
+          "descripcion": "Antecedentes de hipertensión paterna",
+          "fecha_inicio": "2012-07-17T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "I10"
+        },
+        {
+          "id_antecedente": "9872e797-2040-43dd-9012-f00ce8730da8",
+          "tipo": "Familiares",
+          "descripcion": "Diabetes materna",
+          "fecha_inicio": "2008-07-18T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "E11.9"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "867e1f2e-6166-4ba6-9669-a5166e53d13c",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "a2da6ddd-d074-4067-addd-1f0bfa63922c",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "fa9c0246-c999-4856-9809-e4a04dcef0e4",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "169ab96f-fb39-45d4-b452-7461ac95e52e",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00144",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "830f3e71-02d4-4a12-801e-191619c9ce97",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "b8e8398b-668a-4dc5-84a9-d9a26769c9f8",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00144",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "f938ced7-1144-4dda-9031-ca30fa93ea59",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "e6f9e506-d045-418a-983b-39fe67d875f5",
+            "valor": 75.38000858212433,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "2b19c399-5453-48da-a1a7-e4a2032dad14",
+        "id_proposito": "c6ceee41-f14d-4406-aee7-f6f4c0068ce9",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "4b525bf4-f241-40de-ac54-d242fb59e9bf",
+        "firma_digital": "sig_097c12c2e0e52fb7"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "fdcdc4b3-0a8b-4f7e-9266-c1d6bed43b95",
+        "id_usuario_acceso": "63371846-cec1-4909-8bcf-bc2cd8c8994a",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00145",
+    "nif_dni": "38036164Y",
+    "nombre_completo": "Pablo Pérez Santos",
+    "fecha_nacimiento": "1984-01-05",
+    "genero": "male",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000009",
+    "email": "paciente.patient-gx-00145@example.com",
+    "direccion_fisica": "Dirección ficticia 17",
+    "id_seguro_social": "ES91351035",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "c654c477-84b8-4c8e-a78e-d565091a0020",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "64d8d76a-b76a-4379-adc4-ca4185e23042",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "e56c33a0-bbbc-4986-95e5-ba19c303f097",
+          "tipo": "Personales",
+          "descripcion": "Alergia a la penicilina",
+          "fecha_inicio": "2021-07-15T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z88.0"
+        },
+        {
+          "id_antecedente": "94258f28-decb-471f-840e-210e378e6821",
+          "tipo": "Personales",
+          "descripcion": "Asma en la infancia",
+          "fecha_inicio": "2009-07-18T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "J45.9"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "4f1ee4bf-3dcf-4e90-82ed-cacb57df6840",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "f0a47d48-be0c-4cec-bcbb-6a60e1631970",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "480da784-8b3f-4826-b61c-b3c27f0c3a17",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "01afa736-1c96-4e96-b766-8b4cf09a2264",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00145",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "f1b4cc6b-96b4-4d0a-a537-9c7b8514993c",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "6da4ba0a-2007-494b-9434-99f49be8c369",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00145",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "e8356eb5-f2cf-4bf3-94ce-9c6b5aa849c2",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "53f9d192-7d8e-4a94-bfd7-cac1287a64b7",
+            "valor": 65.23362517479877,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "e1e20d08-751a-4f23-a0f5-43adccec2969",
+        "id_proposito": "2391a6e3-ec36-49d2-b320-309a0a34a954",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "13dc9a5e-0110-4b51-89ca-f46a8385d9dc",
+        "firma_digital": "sig_9cb1950545733263"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "6d438013-7286-4501-b6df-0ceff0072b82",
+        "id_usuario_acceso": "12267c9b-22ca-441d-ac91-918fb6a1ad20",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00146",
+    "nif_dni": "94922358R",
+    "nombre_completo": "Laura Gómez Santos",
+    "fecha_nacimiento": "1985-02-06",
+    "genero": "female",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000002",
+    "email": "paciente.patient-gx-00146@example.com",
+    "direccion_fisica": "Dirección ficticia 43",
+    "id_seguro_social": "ES81705695",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "1864c1a2-9172-4c72-b627-ffdcaf0b5dd3",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "3ea4bd99-5c82-432b-ab0e-a8828946e604",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "f34bf052-82fd-40e6-95be-c5da85a01d89",
+          "tipo": "Personales",
+          "descripcion": "Colesterol alto hace 5 años",
+          "fecha_inicio": "2013-07-17T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "E78.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "e6f402be-da3e-4a32-baf9-a5093844c64c",
+          "cie_10": "I10",
+          "cie_11": "Desconocido",
+          "descripcion": "Hipertensión",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "c89edd87-f00b-4194-ae70-0e9d87aab711",
+          "nombre_tratamiento": "Tratamiento para Hipertensión",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "d015a826-d91d-4d26-9c76-eb71960ac1e9",
+              "nombre_comercial": "Enalapril",
+              "principio_activo": "Enalapril",
+              "dosis": "20mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "82841ab9-5979-48d9-a0f2-48098056067e",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00146",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "3a8e8745-e7d1-41dc-bcea-4b7dacf324d0",
+          "resumen_clinico": "Paciente evaluado por Hipertensión."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "b7b36703-326e-4046-a4aa-8e0ccc0843c2",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00146",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "3fffa68f-2590-478d-b525-6cbcddb45e6e",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "f418909c-6057-43c0-9d24-ed77d60eb2ed",
+            "valor": 74.17055546415189,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "1747d669-c32c-4107-94a6-eb8e82e6d4f3",
+        "id_proposito": "1a643957-a539-4778-9829-50dc468ffa7a",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "c63128ab-b2e7-49ff-af69-0088f3c56869",
+        "firma_digital": "sig_c8a868c94987aa52"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "cb21bc66-6e51-40eb-ac0a-145cebf1c4cc",
+        "id_usuario_acceso": "4a5d49ac-cad9-421e-8e13-9ba655323358",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00147",
+    "nif_dni": "60860575E",
+    "nombre_completo": "Andrés Fernández Santos",
+    "fecha_nacimiento": "1986-03-07",
+    "genero": "male",
+    "grupo_sanguineo": "AB+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000004",
+    "email": "paciente.patient-gx-00147@example.com",
+    "direccion_fisica": "Dirección ficticia 69",
+    "id_seguro_social": "ES68951958",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "3f02b12e-749e-4d77-ac94-bda584bbf71f",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "dc5e6388-e022-4b39-96cc-75961672d423",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "37ab6dfd-ef89-49a4-a37c-4a4dbf5e2aa6",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2013-07-17T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "F17.200"
+        },
+        {
+          "id_antecedente": "787e2310-025a-4cd3-a363-4127d46b5ffc",
+          "tipo": "Personales",
+          "descripcion": "Colesterol alto hace 5 años",
+          "fecha_inicio": "2024-07-14T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "E78.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "f0c962bb-6e63-40ba-9fd6-643921863e15",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "4bb584b9-8fb5-456d-9ce1-38e49a030b57",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "06deb3f2-26fc-4bf5-8f7d-b9fdab0db3dc",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "2c11491c-3cbe-4579-9b8a-5aef10889711",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00147",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "fb68e7ea-b1c6-4fbd-8cfc-c7d39781e482",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "5ae456af-a2d5-4a07-afaa-1d7fb8aa701c",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00147",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "fbb44838-dda3-44b8-ac9d-b5fc1ee49aba",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "f670fd76-7903-4bcd-acf7-ac57912e52a7",
+            "valor": 62.846889671846,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "c7699e71-937a-4264-a3fd-14771ed7853b",
+        "id_proposito": "38ab41b9-eeb2-4dd8-ade9-ce3aa9897d16",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "ee23aae7-cac3-4683-83e5-682bc61e084e",
+        "firma_digital": "sig_c687d7094fbca469"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "5a8a31f5-db4a-4233-b819-64f4207a7009",
+        "id_usuario_acceso": "fb4cba3f-b559-46aa-a4e4-b838e4f8bc86",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00148",
+    "nif_dni": "83334657E",
+    "nombre_completo": "Sofía Díaz Santos",
+    "fecha_nacimiento": "1987-04-08",
+    "genero": "female",
+    "grupo_sanguineo": "A-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000001",
+    "email": "paciente.patient-gx-00148@example.com",
+    "direccion_fisica": "Dirección ficticia 62",
+    "id_seguro_social": "ES43159554",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "ee512054-25db-479d-ae46-d40222872e81",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "25f08f99-dd0f-4955-ba10-ef8b66220d95",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "ba5b93c5-9cbe-46af-8941-9684af4b161c",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "224ceec8-c9b6-45c2-8e10-ab301639a832",
+          "cie_10": "I10",
+          "cie_11": "Desconocido",
+          "descripcion": "Hipertensión",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "ed01c544-5c06-4e36-a637-44e47c7d64ff",
+          "nombre_tratamiento": "Tratamiento para Hipertensión",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "b7c32836-9d60-4f77-b584-ff2463dc028b",
+              "nombre_comercial": "Enalapril",
+              "principio_activo": "Enalapril",
+              "dosis": "20mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "af86fd54-9a83-459c-80c8-9ef2ab49c0a5",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00148",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "8230924d-2bd7-46b5-aa72-21f65a3d099a",
+          "resumen_clinico": "Paciente evaluado por Hipertensión."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "d3b0829e-413b-47fa-ae31-32985358df67",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00148",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "e14c6509-5dd4-4096-9b91-ecce8042709e",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "5b969c6a-cfd2-40b3-b1bf-322f0bc3a792",
+            "valor": 70.61811073387395,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "b87708d9-d138-446a-80e2-fbe90e7f3d67",
+        "id_proposito": "925e31d7-3995-45be-b2d5-7ae1938ea1d3",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "ba2ff383-b383-43cb-8031-73fa72359078",
+        "firma_digital": "sig_7f3e228c42b12d9c"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "5d97fcb3-db52-42d4-bfef-ea6e0c51d9ad",
+        "id_usuario_acceso": "0ef1ec83-905c-4e5b-b7df-e54989f9ef77",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00149",
+    "nif_dni": "45951187Q",
+    "nombre_completo": "Álvaro Álvarez Santos",
+    "fecha_nacimiento": "1988-05-09",
+    "genero": "male",
+    "grupo_sanguineo": "O-",
+    "nacionalidad": "Española",
+    "telefono": "+3460000009",
+    "email": "paciente.patient-gx-00149@example.com",
+    "direccion_fisica": "Dirección ficticia 44",
+    "id_seguro_social": "ES82144931",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "80d6e48f-e304-44bd-9c32-4c25d59673e1",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "32394d97-414f-4ed5-86ed-c76b4bad1080",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "79bc3039-3d6c-4b08-ad7d-d77dd8be33cc",
+          "tipo": "Personales",
+          "descripcion": "Operación de apendicitis en la infancia",
+          "fecha_inicio": "2011-07-18T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z98.8"
+        },
+        {
+          "id_antecedente": "568d5e02-8cb3-4aae-9127-8cc000d895e1",
+          "tipo": "Familiares",
+          "descripcion": "Diabetes materna",
+          "fecha_inicio": "2024-07-14T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "E11.9"
+        },
+        {
+          "id_antecedente": "e5136d37-21a8-4549-9a26-d78d0dd2c5da",
+          "tipo": "Familiares",
+          "descripcion": "Madre con osteoporosis",
+          "fecha_inicio": "2014-07-17T05:42:58.964Z",
+          "es_activo": false,
+          "cie_10": "M81.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "c751c15d-acde-4466-ac82-d9cf41721b38",
+          "cie_10": "E11.9",
+          "cie_11": "Desconocido",
+          "descripcion": "Diabetes tipo 2",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "f598644d-03b2-43c6-8afa-629cf9466f80",
+          "nombre_tratamiento": "Tratamiento para Diabetes tipo 2",
+          "indicaciones": "Con comidas",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "c3c8c8d8-6dde-4e09-8a49-5d5b55da641b",
+              "nombre_comercial": "Metformina",
+              "principio_activo": "Metformina",
+              "dosis": "850mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "a5c0bc3c-17aa-458a-9ef9-9f753ecd93b4",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00149",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "b2d6d35b-22d1-44fc-8f7d-876803a645a4",
+          "resumen_clinico": "Paciente evaluado por Diabetes tipo 2."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "84bf5e46-3857-4340-82b7-099e94727a0e",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00149",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "fcf9bb03-645d-4aa1-9f56-2ae59d748ade",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "b40a9c4b-0c9b-4b24-bb1b-78363036c735",
+            "valor": 94.50775728646849,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "6c7b2773-9e93-40a5-9358-edaee11fdb85",
+        "id_proposito": "a5fafce7-73c0-4fd8-b3b7-04a1833c11bb",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "8a683add-8f00-4f6f-9542-77dfc5e15ad5",
+        "firma_digital": "sig_2d6b455e53d2e38e"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "5b9c8472-d99a-4f32-8546-6a808f5c7d01",
+        "id_usuario_acceso": "8b76d794-9457-411f-8263-e2e1a2484e3c",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "patient-gx-00150",
+    "nif_dni": "62175264P",
+    "nombre_completo": "Nuria Romero Santos",
+    "fecha_nacimiento": "1989-06-10",
+    "genero": "female",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+3460000009",
+    "email": "paciente.patient-gx-00150@example.com",
+    "direccion_fisica": "Dirección ficticia 35",
+    "id_seguro_social": "ES29955207",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "011464e9-2e24-4b87-9e75-c536db332aed",
+      "fecha_creacion": "2025-07-14T05:42:58.964Z",
+      "fecha_ultima_actualizacion": "2026-07-14T05:42:58.964Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "cf8363ce-7d90-487d-8ca8-76cc0c5dc2f9",
+          "comunidad_autonoma": "Madrid",
+          "centro_asignado": "CS Central",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "7f70fa64-b85f-4b0d-b86b-c95a9190ada9",
+          "tipo": "Personales",
+          "descripcion": "Sin antecedentes relevantes",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "es_activo": true,
+          "cie_10": "Z00.0"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "8a3cdba3-7a7a-4ce4-a4e1-827a03685805",
+          "cie_10": "I10",
+          "cie_11": "Desconocido",
+          "descripcion": "Hipertensión",
+          "fecha_diagnostico": "2025-07-14T05:42:58.964Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "9eabe958-3da9-4e6e-b1b8-10300ff4607e",
+          "nombre_tratamiento": "Tratamiento para Hipertensión",
+          "indicaciones": "Diaria",
+          "fecha_inicio": "2025-07-14T05:42:58.964Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "9d08c602-6568-46bd-add3-1782db9da75a",
+              "nombre_comercial": "Enalapril",
+              "principio_activo": "Enalapril",
+              "dosis": "20mg",
+              "via_administracion": "Oral",
+              "frecuencia": "Diaria",
+              "fecha_inicio": "2025-07-14T05:42:58.964Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "18d4c1bb-1437-44cd-8047-aeb98ef32b9d",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/patient-gx-00150",
+          "fecha_emision": "2026-07-14T05:42:58.964Z",
+          "id_medico_autor": "7edfca77-bba4-4566-b3d5-145b1e85ca17",
+          "resumen_clinico": "Paciente evaluado por Hipertensión."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "aa93bd00-ad90-43e4-8d92-66e3d7429a80",
+          "tipo": "Analitica",
+          "resultado": "Dentro de parámetros normales",
+          "observaciones": "Revisión anual",
+          "fecha_realizacion": "2026-07-14T05:42:58.964Z",
+          "uri_imagen": "https://pacs.example.com/images/patient-gx-00150",
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "0ef6b70d-8b0f-493e-9bf1-f0bc98120e20",
+        "tipo": "Wearable",
+        "modelo": "SmartBand",
+        "fabricante": "HealthCorp",
+        "fecha_instalacion": "2025-07-14T05:42:58.964Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "58919bfe-1bba-45ba-8988-04d4f2a69bd6",
+            "valor": 82.8000254055539,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T05:42:58.964Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "63d8e06a-7d2c-4ead-88f1-d44a0b5c2ec5",
+        "id_proposito": "21b6a400-b443-4219-a9a6-f60b58166550",
+        "fecha_inicio": "2025-07-14T05:42:58.964Z",
+        "fecha_expiracion": "2031-07-13T05:42:58.964Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "a944f935-7907-4998-89ae-e4b9998e2eb0",
+        "firma_digital": "sig_a9cede8b47af7588"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "9aea7d53-9bac-4924-8d3f-4869bc2f858a",
+        "id_usuario_acceso": "d7ae2104-3d52-4a81-a918-69e844037731",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T05:42:58.964Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.100",
+        "resultado": "Exitoso"
+      }
+    ]
+  }
+]

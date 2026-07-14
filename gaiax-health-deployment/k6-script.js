@@ -11,13 +11,13 @@ const fhirRequestTime = new Trend('trend_fhir_request_duration'); // Métrica pa
 const errorRate = new Rate('rate_errors');
 
 // --- Opciones de la Prueba ---
-// Ajustadas para un stack de microservicios en local.
+// Ajustadas para forzar una prueba de estrés (Stress Test) y degradar las prestaciones.
 export const options = {
   stages: [
-    { duration: '1m', target: 10 }, // Rampa suave a 10 usuarios virtuales (VUs)
-    { duration: '3m', target: 25 }, // Sube la carga a 25 VUs
-    { duration: '5m', target: 25 }, // Mantiene la carga durante 5 minutos
-    { duration: '1m', target: 0 },  // Rampa de bajada
+    { duration: '1m', target: 50 },  // Rampa de subida rápida a 50 VUs
+    { duration: '2m', target: 200 }, // Subida fuerte a 200 VUs para saturar
+    { duration: '3m', target: 500 }, // Pico de 500 VUs para forzar la degradación
+    { duration: '1m', target: 0 },   // Rampa de bajada
   ],
   thresholds: {
     // El 95% de las peticiones deben ser más rápidas de 2 segundos.

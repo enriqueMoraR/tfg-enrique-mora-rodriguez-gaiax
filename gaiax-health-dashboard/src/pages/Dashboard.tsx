@@ -16,7 +16,6 @@ import AnalyticsStatsPanel from '../features/analytics/components/AnalyticsStats
 import ComparisonScatterChart from '../features/analytics/components/ComparisonScatterChart'
 import MeasurementDistributionChart from '../features/analytics/components/MeasurementDistributionChart'
 import TemporalEchartsChart from '../features/analytics/components/TemporalEchartsChart'
-import StatusIndicator from '../components/StatusIndicator'
 import MetricsLineChart from '../components/MetricsLineChart'
 import MeasurementsTable from '../features/patients/components/MeasurementsTable'
 import PatientsTable from '../features/patients/components/PatientsTable'
@@ -905,10 +904,6 @@ export default function Dashboard({ activePage }: DashboardProps) {
           </div>
         </section>
       ))}
-
-      <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
-        <StatusIndicator />
-      </div>
     </div>
   )
 }

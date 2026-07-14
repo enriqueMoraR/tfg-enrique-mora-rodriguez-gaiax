@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ErrorBoundary from './components/ErrorBoundary'
 import Dashboard, { type DashboardPage } from './pages/Dashboard'
-
+import HistorialPage from './pages/Historial' // Importar la nueva página
+import ProveedoresPage from './pages/Proveedores' // Importar la página de proveedores
+import StatusIndicator from './components/StatusIndicator'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -12,14 +14,19 @@ const queryClient = new QueryClient({
   },
 })
 
-const PAGES: Array<{ id: DashboardPage; label: string; description: string }> = [
+// Añadir la nueva página a la lista de páginas posibles
+type AppPage = DashboardPage | 'historial' | 'proveedores'
+
+const PAGES: Array<{ id: AppPage; label: string; description: string }> = [
   { id: 'overview', label: 'Inicio', description: 'Resumen ejecutivo y visión general en tiempo real' },
   { id: 'patients', label: 'Pacientes', description: 'Explora y selecciona pacientes cargados desde FHIR' },
   { id: 'analytics', label: 'Analítica', description: 'Tendencias, distribución y lectura clínica real' },
+  { id: 'historial', label: 'Historial Clínico', description: 'Visualiza el historial detallado de un paciente' },
+  { id: 'proveedores', label: 'Hospitales y Médicos', description: 'Directorio de instituciones de salud y cuadro médico colegiado' },
 ]
 
 export default function App() {
-  const [activePage, setActivePage] = useState<DashboardPage>('overview')
+  const [activePage, setActivePage] = useState<AppPage>('overview')
   const currentPage = PAGES.find((page) => page.id === activePage) ?? PAGES[0]
 
   useEffect(() => {
@@ -78,7 +85,14 @@ export default function App() {
           </header>
 
           <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-            <Dashboard activePage={activePage} />
+            {/* Renderizado condicional */}
+            {activePage === 'historial' ? (
+              <HistorialPage />
+            ) : activePage === 'proveedores' ? (
+              <ProveedoresPage />
+            ) : (
+              <Dashboard activePage={activePage} />
+            )}
           </main>
 
           <footer className="border-t border-white/70 bg-white/70 backdrop-blur-xl">
@@ -86,6 +100,9 @@ export default function App() {
               Presentación de datos Gaia-X Health · Vista pública de paciente y analítica.
             </div>
           </footer>
+          <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
+            <StatusIndicator />
+          </div>
         </div>
       </QueryClientProvider>
     </ErrorBoundary>

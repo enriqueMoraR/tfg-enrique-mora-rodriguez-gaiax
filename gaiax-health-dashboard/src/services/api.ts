@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 
-const API_URL = (import.meta.env.VITE_API_URL as string) || 'http://localhost:8083/api/v1'
+const API_URL = (import.meta.env.VITE_API_URL as string) || '/api/v1'
 const API_TIMEOUT = Number((import.meta.env.VITE_API_TIMEOUT as string) || 10000)
 
 // Create axios instance
