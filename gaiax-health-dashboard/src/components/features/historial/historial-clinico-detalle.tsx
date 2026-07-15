@@ -9,6 +9,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
+import { Activity, Pill, User, FileText, Wifi } from 'lucide-react'
 
 interface Props {
   historial: HistorialClinico
@@ -17,18 +18,24 @@ interface Props {
 export function HistorialClinicoDetalle({ historial }: Props) {
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex justify-between items-center">
-            <span>Historial Clínico de: {historial.paciente.nombreCompleto}</span>
-            <Badge variant="secondary">DNI: {historial.paciente.nifDni}</Badge>
+      <Card className="overflow-hidden border-t-4 border-t-clinical-blue shadow-md hover:shadow-lg transition-all duration-300">
+        <CardHeader className="bg-slate-50 pb-4">
+          <CardTitle className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 text-xl">
+            <div className="flex items-center gap-2 text-slate-800">
+              <User className="h-5 w-5 text-clinical-blue" />
+              <span>Historial Clínico: <span className="font-bold">{historial.paciente.nombreCompleto}</span></span>
+            </div>
+            <Badge variant="outline" className="text-sm px-3 py-1 bg-white">DNI: {historial.paciente.nifDni}</Badge>
           </CardTitle>
         </CardHeader>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Diagnósticos</CardTitle>
+      <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+        <CardHeader className="pb-3 border-b">
+          <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
+            <Activity className="h-5 w-5 text-rose-500" />
+            Diagnósticos
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
@@ -54,14 +61,17 @@ export function HistorialClinicoDetalle({ historial }: Props) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Tratamientos</CardTitle>
+      <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+        <CardHeader className="pb-3 border-b">
+          <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
+            <Pill className="h-5 w-5 text-emerald-500" />
+            Tratamientos
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {historial.tratamientos.map((t) => (
-            <div key={t.idTratamiento} className="border rounded-lg p-4 mb-4">
-              <h4 className="font-semibold mb-2">{t.nombreTratamiento}</h4>
+            <div key={t.idTratamiento} className="border rounded-xl p-5 mb-6 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+              <h4 className="font-semibold text-slate-800 text-lg mb-2">{t.nombreTratamiento}</h4>
               <p className="text-sm text-muted-foreground mb-2">
                 <strong>Indicaciones:</strong> {t.indicaciones}
               </p>
@@ -89,9 +99,12 @@ export function HistorialClinicoDetalle({ historial }: Props) {
           ))}
         </CardContent>
       </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Filiación y Datos Sociodemográficos</CardTitle>
+      <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+        <CardHeader className="pb-3 border-b">
+          <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
+            <FileText className="h-5 w-5 text-blue-500" />
+            Filiación y Datos Sociodemográficos
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {historial.filiacion && historial.filiacion.length > 0 ? (
@@ -121,9 +134,12 @@ export function HistorialClinicoDetalle({ historial }: Props) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Antecedentes del Paciente</CardTitle>
+      <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+        <CardHeader className="pb-3 border-b">
+          <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
+            <Activity className="h-5 w-5 text-amber-500" />
+            Antecedentes del Paciente
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {historial.antecedentes && historial.antecedentes.length > 0 ? (
@@ -159,20 +175,23 @@ export function HistorialClinicoDetalle({ historial }: Props) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Dispositivos IoT Médicos</CardTitle>
+      <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
+        <CardHeader className="pb-3 border-b">
+          <CardTitle className="flex items-center gap-2 text-lg text-slate-800">
+            <Wifi className="h-5 w-5 text-indigo-500" />
+            Dispositivos IoT Médicos
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {historial.dispositivos && historial.dispositivos.length > 0 ? (
             historial.dispositivos.map((d) => (
-              <div key={d.idDispositivo} className="border rounded-lg p-4 mb-4">
-                <h4 className="font-semibold mb-2">{d.tipo} - {d.modelo}</h4>
-                <div className="flex gap-2 mb-4">
-                  <Badge variant={d.conectado ? "default" : "secondary"}>
+              <div key={d.idDispositivo} className="border rounded-xl p-5 mb-6 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                <h4 className="font-semibold text-slate-800 text-lg mb-3">{d.tipo} - {d.modelo}</h4>
+                <div className="flex gap-2 mb-5">
+                  <Badge className={d.conectado ? "bg-emerald-100 text-emerald-800 hover:bg-emerald-200 border-emerald-200" : "bg-slate-100 text-slate-600 border-slate-200"}>
                     {d.conectado ? 'Conectado' : 'Desconectado'}
                   </Badge>
-                  <Badge variant="outline">{d.fabricante}</Badge>
+                  <Badge variant="outline" className="bg-white">{d.fabricante}</Badge>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   <strong>Instalación:</strong> {new Date(d.fechaInstalacion).toLocaleDateString()}

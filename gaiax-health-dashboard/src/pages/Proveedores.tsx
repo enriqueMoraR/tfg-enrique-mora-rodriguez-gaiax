@@ -71,8 +71,8 @@ export default function ProveedoresPage() {
       ) : (
         <div className="grid gap-6">
           {proveedores.map((proveedor) => (
-            <Card key={proveedor.idProveedor} className="overflow-hidden border-t-4 border-t-blue-600">
-              <CardHeader className="bg-slate-50 pb-4">
+            <Card key={proveedor.idProveedor} className="overflow-hidden border-t-4 border-t-blue-600 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardHeader className="bg-slate-50/80 pb-5 border-b border-slate-100">
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle className="text-xl flex items-center gap-2">
@@ -131,12 +131,12 @@ export default function ProveedoresPage() {
                             <TableCell className="text-slate-500">{medico.nroColegiado}</TableCell>
                             <TableCell>
                               {medico.estadoActivo ? (
-                                <div className="flex items-center gap-1.5 text-green-600 text-sm font-medium">
+                                <div className="flex items-center gap-1.5 text-emerald-600 text-sm font-medium bg-emerald-50 px-2 py-1 rounded-md w-fit">
                                   <CheckCircle2 className="h-4 w-4" />
                                   Activo
                                 </div>
                               ) : (
-                                <div className="flex items-center gap-1.5 text-slate-400 text-sm font-medium">
+                                <div className="flex items-center gap-1.5 text-slate-400 text-sm font-medium bg-slate-100 px-2 py-1 rounded-md w-fit">
                                   <XCircle className="h-4 w-4" />
                                   Inactivo
                                 </div>
