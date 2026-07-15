@@ -131,4 +131,38 @@ class TrustServiceTest {
         assertEquals(1, service.auditEvents().size());
         assertEquals("POLICY_VALIDATED", service.auditEvents().get(0).eventType());
     }
+
+    @Test
+    void testConcurrentAuditEvents() throws InterruptedException {
+        TrustService service = new TrustService(policyService);
+        int threadCount = 100;
+        java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newFixedThreadPool(10);
+        java.util.concurrent.CountDownLatch latch = new java.util.concurrent.CountDownLatch(threadCount);
+
+        for (int i = 0; i < threadCount; i++) {
+            final int index = i;
+            executor.submit(() -> {
+                try {
+                    PolicyValidationRequest request = new PolicyValidationRequest(
+                            "dataset-" + index,
+                            "consumer-1",
+                            "did:web:consumer.gaiax-health.local",
+                            "did:web:provider.gaiax-health.local",
+                            "research",
+                            List.of("dataset.read"),
+                            "2026-01-01T00:00:00Z",
+                            "2026-12-31T23:59:59Z"
+                    );
+                    service.validatePolicy(request);
+                } finally {
+                    latch.countDown();
+                }
+            });
+        }
+
+        latch.await();
+        executor.shutdown();
+
+        assertEquals(threadCount, service.auditEvents().size(), "Todos los eventos deben estar registrados sin perder ninguno");
+    }
 }

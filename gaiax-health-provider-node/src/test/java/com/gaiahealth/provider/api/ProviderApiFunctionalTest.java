@@ -20,6 +20,18 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.util.List;
 import java.util.UUID;
+import com.gaiahealth.provider.domain.PacienteRepository;
+import com.gaiahealth.provider.domain.HistorialClinicoRepository;
+import com.gaiahealth.provider.domain.DiagnosticoRepository;
+import com.gaiahealth.provider.domain.TratamientoRepository;
+import com.gaiahealth.provider.domain.MedicacionRepository;
+import com.gaiahealth.provider.domain.MedicoRepository;
+import com.gaiahealth.provider.domain.ConsentimientoRepository;
+import com.gaiahealth.provider.domain.AuditoriaAccesoRepository;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.AdditionalAnswers;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -39,9 +51,33 @@ class ProviderApiFunctionalTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @MockBean
+    private PacienteRepository pacienteRepository;
+    @MockBean
+    private HistorialClinicoRepository historialClinicoRepository;
+    @MockBean
+    private DiagnosticoRepository diagnosticoRepository;
+    @MockBean
+    private TratamientoRepository tratamientoRepository;
+    @MockBean
+    private MedicacionRepository medicacionRepository;
+    @MockBean
+    private MedicoRepository medicoRepository;
+    @MockBean
+    private ConsentimientoRepository consentimientoRepository;
+    @MockBean
+    private AuditoriaAccesoRepository auditoriaAccesoRepository;
+
     @BeforeEach
     void setUp() {
-        // MockMvc is injected by Spring Boot; no manual setup required.
+        when(pacienteRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(historialClinicoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(diagnosticoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(tratamientoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(medicacionRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(medicoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(consentimientoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
+        when(auditoriaAccesoRepository.save(any())).thenAnswer(AdditionalAnswers.returnsFirstArg());
     }
 
     @Test
@@ -172,6 +208,7 @@ class ProviderApiFunctionalTest {
         FhirObservationService fhirObservationService() {
             return new NoOpFhirObservationService();
         }
+
     }
 
     private static final class NoOpFhirObservationService extends FhirObservationService {

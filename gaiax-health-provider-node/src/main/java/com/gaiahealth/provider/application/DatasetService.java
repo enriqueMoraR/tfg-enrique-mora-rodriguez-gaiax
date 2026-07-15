@@ -54,8 +54,7 @@ public class DatasetService {
                 publishedAt
         );
 
-        DatasetRecord existing = store.putIfAbsent(datasetId, record);
-        if (existing != null) {
+        if (store.containsKey(datasetId)) {
             throw new ProviderApiException(ProviderErrorCode.CONFLICT, "datasetId already exists");
         }
 
@@ -63,10 +62,13 @@ public class DatasetService {
         try {
             transformAndPersist(record);
         } catch (Exception e) {
-            log.error("Error al persistir en el nuevo esquema. La operación en memoria tuvo éxito, pero la persistencia relacional falló.", e);
-            // Aquí se podría decidir si revertir la operación en memoria o marcarla para una futura migración.
-            // Por ahora, lanzamos una excepción para señalar el fallo.
+            log.error("Error al persistir en el nuevo esquema. La operación en memoria fallará al rollback de BD.", e);
             throw new ProviderApiException(ProviderErrorCode.INTERNAL_ERROR, "Fallo en la persistencia de datos relacionales: " + e.getMessage());
+        }
+
+        DatasetRecord existing = store.putIfAbsent(datasetId, record);
+        if (existing != null) {
+            throw new ProviderApiException(ProviderErrorCode.CONFLICT, "datasetId already exists");
         }
 
         return new DatasetResponse(datasetId, record.status().name(), publishedAt.toString());
@@ -74,9 +76,8 @@ public class DatasetService {
 
     /**
      * Transforma un DatasetRecord (basado en FHIR) y lo persiste en el nuevo modelo de datos relacional.
-     * Este método es transaccional.
+     * Este método es llamado desde un contexto ya transaccional.
      */
-    @Transactional
     protected void transformAndPersist(DatasetRecord record) {
         JsonNode payload = record.payload();
         if (!payload.has("entry")) {

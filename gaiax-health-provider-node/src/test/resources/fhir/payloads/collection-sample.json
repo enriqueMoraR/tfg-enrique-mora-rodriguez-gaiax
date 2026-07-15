@@ -7,6 +7,12 @@
       "resource": {
         "resourceType": "Patient",
         "id": "patient-sample-00001",
+        "identifier": [
+          {
+            "system": "http://fhir.msssi.gob.es/Patient/NIF",
+            "value": "12345678Z"
+          }
+        ],
         "gender": "unknown",
         "birthDate": "1970-01-01",
         "name": [ { "family": "Test", "given": [ "Patient" ] } ]

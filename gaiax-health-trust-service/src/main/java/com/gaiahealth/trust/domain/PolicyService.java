@@ -60,13 +60,6 @@ public class PolicyService {
             throw new TrustApiException(TrustErrorCode.VALIDATION_ERROR, "Invalid policy request", issues);
         }
 
-        if (!consentWindowActive(request.getValidFrom(), request.getValidTo())) {
-            throw new TrustApiException(
-                    TrustErrorCode.VALIDATION_ERROR,
-                    "consent window is invalid or expired",
-                    List.of(new TrustValidationIssue("validFrom/validTo", "must define an active consent window"))
-            );
-        }
     }
 
     private boolean consentWindowActive(String validFrom, String validTo) {

@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Collections;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -62,6 +64,14 @@ public class HistorialClinicoService {
             return dDto;
         }).collect(Collectors.toList()));
 
+        Map<UUID, List<Medicacion>> medicacionesPorTratamiento;
+        if (tratamientos.isEmpty()) {
+            medicacionesPorTratamiento = Collections.emptyMap();
+        } else {
+            medicacionesPorTratamiento = medicacionRepository.findByTratamientoIn(tratamientos)
+                .stream().collect(Collectors.groupingBy(m -> m.getTratamiento().getIdTratamiento()));
+        }
+
         dto.setTratamientos(tratamientos.stream().map(t -> {
             HistorialClinicoDTO.TratamientoDTO tDto = new HistorialClinicoDTO.TratamientoDTO();
             tDto.setIdTratamiento(t.getIdTratamiento());
@@ -69,8 +79,8 @@ public class HistorialClinicoService {
             tDto.setIndicaciones(t.getIndicaciones());
             tDto.setFechaInicio(t.getFechaInicio());
             
-            // Cargar medicaciones para cada tratamiento
-            var medicaciones = medicacionRepository.findByTratamiento(t);
+            // Cargar medicaciones desde el mapa precargado (evita N+1 query)
+            var medicaciones = medicacionesPorTratamiento.getOrDefault(t.getIdTratamiento(), Collections.emptyList());
             tDto.setMedicaciones(medicaciones.stream().map(m -> {
                 HistorialClinicoDTO.MedicacionDTO mDto = new HistorialClinicoDTO.MedicacionDTO();
                 mDto.setIdMedicacion(m.getIdMedicacion());
@@ -155,9 +165,11 @@ public class HistorialClinicoService {
             p.setGenero(request.getGenero());
             p.setEstadoActivo(true);
             try {
-                p.setFechaNacimiento(new java.text.SimpleDateFormat("yyyy-MM-dd").parse(request.getFechaNacimiento()));
+                if (request.getFechaNacimiento() != null) {
+                    p.setFechaNacimiento(new java.text.SimpleDateFormat("yyyy-MM-dd").parse(request.getFechaNacimiento()));
+                }
             } catch (Exception e) {
-                p.setFechaNacimiento(new java.util.Date());
+                throw new ProviderApiException(ProviderErrorCode.VALIDATION_ERROR, "Formato de fecha de nacimiento inválido: " + request.getFechaNacimiento());
             }
             return pacienteRepository.save(p);
         });
@@ -241,9 +253,11 @@ public class HistorialClinicoService {
                 a.setTipo(aInfo.getTipo());
                 a.setDescripcion(aInfo.getDescripcion());
                 try {
-                    a.setFechaInicio(aInfo.getFechaInicio() != null ? new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(aInfo.getFechaInicio()) : new java.util.Date());
+                    if (aInfo.getFechaInicio() != null) {
+                        a.setFechaInicio(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(aInfo.getFechaInicio()));
+                    }
                 } catch (Exception e) {
-                    a.setFechaInicio(new java.util.Date());
+                    throw new ProviderApiException(ProviderErrorCode.VALIDATION_ERROR, "Formato de fecha de inicio de antecedente inválido: " + aInfo.getFechaInicio());
                 }
                 a.setEsActivo(aInfo.getEsActivo());
                 a.setCie10(aInfo.getCie10());
@@ -260,9 +274,11 @@ public class HistorialClinicoService {
                 d.setModelo(dInfo.getModelo());
                 d.setFabricante(dInfo.getFabricante());
                 try {
-                    d.setFechaInstalacion(dInfo.getFechaInstalacion() != null ? new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(dInfo.getFechaInstalacion()) : new java.util.Date());
+                    if (dInfo.getFechaInstalacion() != null) {
+                        d.setFechaInstalacion(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(dInfo.getFechaInstalacion()));
+                    }
                 } catch (Exception e) {
-                    d.setFechaInstalacion(new java.util.Date());
+                    throw new ProviderApiException(ProviderErrorCode.VALIDATION_ERROR, "Formato de fecha de instalación de dispositivo inválido: " + dInfo.getFechaInstalacion());
                 }
                 d.setConectado(dInfo.getConectado());
                 d = dispositivoIotRepository.save(d);
@@ -275,9 +291,11 @@ public class HistorialClinicoService {
                         l.setValor(lInfo.getValor());
                         l.setUnidad(lInfo.getUnidad());
                         try {
-                            l.setTimestamp(lInfo.getTimestamp() != null ? new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(lInfo.getTimestamp()) : new java.util.Date());
+                            if (lInfo.getTimestamp() != null) {
+                                l.setTimestamp(new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(lInfo.getTimestamp()));
+                            }
                         } catch (Exception e) {
-                            l.setTimestamp(new java.util.Date());
+                            throw new ProviderApiException(ProviderErrorCode.VALIDATION_ERROR, "Formato de timestamp de lectura inválido: " + lInfo.getTimestamp());
                         }
                         l.setCalidadDato(lInfo.getCalidadDato());
                         lecturaSensorRepository.save(l);

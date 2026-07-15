@@ -20,11 +20,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class TrustService {
     private final Map<String, AccessRequestRecord> accessRequests = new ConcurrentHashMap<>();
-    private final List<AuditEvent> auditEvents = new ArrayList<>();
+    private final List<AuditEvent> auditEvents = new CopyOnWriteArrayList<>();
     private final PolicyService policyService;
 
     public TrustService(PolicyService policyService) {
@@ -58,27 +59,29 @@ public class TrustService {
             throw new TrustApiException(TrustErrorCode.NOT_FOUND, "access request not found");
         }
 
-        if (record.getStatus() == AccessRequestStatus.PENDING) {
-            PolicyValidationRequest validationRequest = new PolicyValidationRequest(
-                    record.getDatasetId(),
-                    record.getConsumerId(),
-                    record.getConsumerDid(),
-                    record.getReceiverDid(),
-                    record.getPurpose(),
-                    record.getRequestedScopes(),
-                    record.getValidFrom(),
-                    record.getValidTo()
-            );
-            PolicyValidationResponse decision = policyService.validate(validationRequest);
-            AccessRequestStatus decidedStatus = decision.allowed() ? AccessRequestStatus.APPROVED : AccessRequestStatus.REJECTED;
-            Instant decidedAt = Instant.now();
-            record.decide(decidedStatus, decision.reason(), decidedAt);
-            auditEvents.add(new AuditEvent(
-                    "ACCESS_REQUEST_DECIDED",
-                    requestId,
-                    "status=" + decidedStatus + ",reason=" + decision.reason(),
-                    decidedAt
-            ));
+        synchronized (record) {
+            if (record.getStatus() == AccessRequestStatus.PENDING) {
+                PolicyValidationRequest validationRequest = new PolicyValidationRequest(
+                        record.getDatasetId(),
+                        record.getConsumerId(),
+                        record.getConsumerDid(),
+                        record.getReceiverDid(),
+                        record.getPurpose(),
+                        record.getRequestedScopes(),
+                        record.getValidFrom(),
+                        record.getValidTo()
+                );
+                PolicyValidationResponse decision = policyService.validate(validationRequest);
+                AccessRequestStatus decidedStatus = decision.allowed() ? AccessRequestStatus.APPROVED : AccessRequestStatus.REJECTED;
+                Instant decidedAt = Instant.now();
+                record.decide(decidedStatus, decision.reason(), decidedAt);
+                auditEvents.add(new AuditEvent(
+                        "ACCESS_REQUEST_DECIDED",
+                        requestId,
+                        "status=" + decidedStatus + ",reason=" + decision.reason(),
+                        decidedAt
+                ));
+            }
         }
 
         return new AccessRequestStatusResponse(

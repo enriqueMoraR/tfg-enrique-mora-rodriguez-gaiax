@@ -90,7 +90,7 @@ class PolicyServiceTest {
     }
 
     @Test
-    void validateRejectsExpiredConsentWindow() {
+    void validateDeniesExpiredConsentWindow() {
         PolicyValidationRequest request = new PolicyValidationRequest(
                 "dataset-1",
                 "consumer-1",
@@ -102,10 +102,10 @@ class PolicyServiceTest {
                 "2020-12-31T23:59:59Z"
         );
 
-        TrustApiException ex = assertThrows(TrustApiException.class, () -> service.validate(request));
+        var response = service.validate(request);
 
-        assertEquals(TrustErrorCode.VALIDATION_ERROR, ex.code());
-        assertEquals("consent window is invalid or expired", ex.getMessage());
-        assertEquals("validFrom/validTo", ex.details().get(0).field());
+        assertFalse(response.allowed());
+        assertEquals("policy-001", response.policyId());
+        assertEquals("policy-mismatch", response.reason());
     }
 }

@@ -1,6 +1,10 @@
-package com.gaiahealth.provider.domain;
+package com.gaiahealth.provider.application;
 
 import com.gaiahealth.provider.application.DatasetService;
+import com.gaiahealth.provider.domain.DatasetRecord;
+import com.gaiahealth.provider.domain.FhirValidationService;
+import com.gaiahealth.provider.domain.ProviderApiException;
+import com.gaiahealth.provider.domain.ProviderErrorCode;
 import com.gaiahealth.provider.api.CreateDatasetRequest;
 import com.gaiahealth.provider.api.DatasetListResponse;
 import com.gaiahealth.provider.api.DatasetMetadata;
@@ -15,14 +19,42 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowableOfType;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.lenient;
 
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
 class DatasetServiceUnitTest {
 
+    @Mock
+    private com.gaiahealth.provider.domain.PacienteRepository pacienteRepository;
+    @Mock
+    private com.gaiahealth.provider.domain.HistorialClinicoRepository historialClinicoRepository;
+    @Mock
+    private com.gaiahealth.provider.domain.DiagnosticoRepository diagnosticoRepository;
+    @Mock
+    private com.gaiahealth.provider.domain.TratamientoRepository tratamientoRepository;
+    @Mock
+    private com.gaiahealth.provider.domain.MedicacionRepository medicacionRepository;
+    @Mock
+    private com.gaiahealth.provider.domain.MedicoRepository medicoRepository;
+
+    @Spy
+    private FhirValidationService fhirValidationService = new FhirValidationService();
+
+    @InjectMocks
+    @Spy
     private DatasetService datasetService;
 
     @BeforeEach
     void setUp() {
-        this.datasetService = new DatasetService(new FhirValidationService());
+        lenient().doNothing().when(datasetService).transformAndPersist(any());
     }
 
     @Test

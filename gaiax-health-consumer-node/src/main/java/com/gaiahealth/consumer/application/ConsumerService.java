@@ -10,14 +10,14 @@ import com.gaiahealth.consumer.domain.ConsumerErrorCode;
 import com.gaiahealth.consumer.domain.ConsumerValidationIssue;
 import com.gaiahealth.consumer.domain.TrustAccessClient;
 import com.gaiahealth.consumer.infrastructure.trust.AccessRequestStatusResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import java.util.concurrent.CompletableFuture;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,9 +33,16 @@ public class ConsumerService {
     private final Map<String, List<Map<String, Object>>> jobMeasurements = new ConcurrentHashMap<>();
     private final TrustAccessClient trustAccessClient;
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private final RestClient restClient;
+    private final String providerBaseUrl;
 
-    public ConsumerService(TrustAccessClient trustAccessClient) {
+    public ConsumerService(
+            TrustAccessClient trustAccessClient,
+            @Value("${gaiax.provider.base-url:http://localhost:8081}") String providerBaseUrl
+    ) {
         this.trustAccessClient = trustAccessClient;
+        this.providerBaseUrl = providerBaseUrl;
+        this.restClient = RestClient.create();
     }
 
     public ConsumptionJobCreatedResponse createConsumptionJob(CreateConsumptionJobRequest request) {
@@ -52,8 +59,8 @@ public class ConsumerService {
         );
         jobs.put(jobId, record);
 
-        // Resolve quickly for MVP while preserving async-like API contract.
-        resolveJob(record);
+        // Resolve asynchronously to decouple API response from fetching process
+        CompletableFuture.runAsync(() -> resolveJob(record));
 
         return new ConsumptionJobCreatedResponse(jobId, ConsumptionJobStatus.RUNNING.name(), startedAt.toString());
     }
@@ -146,50 +153,21 @@ public class ConsumerService {
     }
 
     protected JsonNode fetchProviderPayload(ConsumptionJobRecord record) throws Exception {
-        String datasetId = record.getDatasetId();
-        String[] hosts = new String[]{"http://provider:8081", "http://localhost:8081"};
-        Exception lastEx = null;
-        for (String base : hosts) {
-            String urlStr = base + "/api/v1/datasets/" + datasetId + "/raw";
-            try {
-                log.info("Attempting fetch from {}", urlStr);
-                URL url = new URL(urlStr);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
-                if (record.getConsumerDid() != null) {
-                    conn.setRequestProperty("X-Consumer-Did", record.getConsumerDid());
-                }
-                if (record.getReceiverDid() != null) {
-                    conn.setRequestProperty("X-Receiver-Did", record.getReceiverDid());
-                }
-                if (record.getPurpose() != null) {
-                    conn.setRequestProperty("X-Purpose", record.getPurpose());
-                }
-                if (record.getValidFrom() != null) {
-                    conn.setRequestProperty("X-Consent-From", record.getValidFrom());
-                }
-                if (record.getValidTo() != null) {
-                    conn.setRequestProperty("X-Consent-To", record.getValidTo());
-                }
-                conn.setRequestProperty("X-Access-Request-Id", record.getAccessRequestId());
-                conn.setConnectTimeout(3000);
-                conn.setReadTimeout(5000);
-                int rc = conn.getResponseCode();
-                log.info("Fetch {} -> rc={}", urlStr, rc);
-                if (rc >= 200 && rc < 300) {
-                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    StringBuilder sb = new StringBuilder();
-                    String line;
-                    while ((line = in.readLine()) != null) sb.append(line);
-                    in.close();
-                    return objectMapper.readTree(sb.toString());
-                }
-            } catch (Exception e) {
-                log.warn("fetchProviderPayload failed for {}: {}", urlStr, e.toString());
-                lastEx = e;
-            }
-        }
-        throw lastEx != null ? lastEx : new Exception("provider unreachable");
+        String urlStr = providerBaseUrl + "/api/v1/datasets/" + record.getDatasetId() + "/raw";
+        log.info("Attempting fetch from {}", urlStr);
+
+        return restClient.get()
+                .uri(urlStr)
+                .headers(headers -> {
+                    if (record.getConsumerDid() != null) headers.set("X-Consumer-Did", record.getConsumerDid());
+                    if (record.getReceiverDid() != null) headers.set("X-Receiver-Did", record.getReceiverDid());
+                    if (record.getPurpose() != null) headers.set("X-Purpose", record.getPurpose());
+                    if (record.getValidFrom() != null) headers.set("X-Consent-From", record.getValidFrom());
+                    if (record.getValidTo() != null) headers.set("X-Consent-To", record.getValidTo());
+                    if (record.getAccessRequestId() != null) headers.set("X-Access-Request-Id", record.getAccessRequestId());
+                })
+                .retrieve()
+                .body(JsonNode.class);
     }
 
     private List<Map<String, Object>> extractMeasurementsFromPayload(JsonNode payload) {

@@ -80,7 +80,7 @@ class ConsumerControllerTest {
         private RecordingConsumerService() {
             super(requestId -> {
                 throw new UnsupportedOperationException("not used in controller test");
-            });
+            }, "http://localhost:8081");
         }
 
         @Override

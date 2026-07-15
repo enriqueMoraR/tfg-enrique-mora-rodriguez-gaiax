@@ -1,5 +1,7 @@
 package com.gaiahealth.provider.api.security;
 
+import com.gaiahealth.provider.domain.AuditoriaAcceso;
+import com.gaiahealth.provider.domain.AuditoriaAccesoRepository;
 import com.gaiahealth.provider.domain.ConsentimientoRepository;
 import com.gaiahealth.provider.domain.HistorialClinicoRepository;
 import com.gaiahealth.provider.domain.Paciente;
@@ -18,6 +20,7 @@ public class ConsentimientoInterceptor implements HandlerInterceptor {
 
     private final ConsentimientoRepository consentimientoRepository;
     private final HistorialClinicoRepository historialClinicoRepository;
+    private final AuditoriaAccesoRepository auditoriaAccesoRepository;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -86,7 +89,20 @@ public class ConsentimientoInterceptor implements HandlerInterceptor {
         );
 
         if (consentimientoValido.isEmpty()) {
-            // TODO: Registrar intento de acceso en AUDITORIA
+            String userIdHeader = request.getHeader("X-User-ID");
+            UUID usuarioId = userIdHeader != null ? UUID.fromString(userIdHeader) : UUID.fromString("00000000-0000-0000-0000-000000000000");
+            
+            AuditoriaAcceso auditLog = new AuditoriaAcceso();
+            auditLog.setIdAudit(UUID.randomUUID());
+            auditLog.setPaciente(paciente);
+            auditLog.setIdUsuarioAcceso(usuarioId);
+            auditLog.setAccion(request.getMethod());
+            auditLog.setTimestamp(new Date());
+            auditLog.setMotivoAcceso(propositoHeader);
+            auditLog.setIpOrigen(request.getRemoteAddr());
+            auditLog.setResultado("Denegado - Falta Consentimiento");
+            auditoriaAccesoRepository.save(auditLog);
+            
             response.sendError(HttpServletResponse.SC_FORBIDDEN, "Acceso denegado por falta de consentimiento válido.");
             return false;
         }

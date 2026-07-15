@@ -14,6 +14,9 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.util.List;
+import org.awaitility.Awaitility;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -31,7 +34,7 @@ class ConsumerServiceTest {
         trustAccessClient = requestId -> {
             throw new IllegalStateException("trust client not configured for " + requestId);
         };
-        service = new ConsumerService(trustAccessClient);
+        service = new ConsumerService(trustAccessClient, "http://localhost:8081");
     }
 
     @Test
@@ -75,10 +78,12 @@ class ConsumerServiceTest {
                 "Denied",
                 "2026-06-10T00:00:00Z"
         );
-        service = new ConsumerService(trustAccessClient);
+        service = new ConsumerService(trustAccessClient, "http://localhost:8081");
 
         CreateConsumptionJobRequest request = new CreateConsumptionJobRequest("dataset-alpha", "ar-001", "download");
         var created = service.createConsumptionJob(request);
+        Awaitility.await().atMost(Duration.ofSeconds(5))
+            .until(() -> "FAILED".equals(service.getConsumptionJob(created.jobId()).status()));
         var status = service.getConsumptionJob(created.jobId());
         List<Map<String, Object>> jobs = service.listConsumptionJobs("alpha", false);
 
@@ -101,10 +106,12 @@ class ConsumerServiceTest {
         trustAccessClient = requestId -> {
             throw new ConsumerApiException(ConsumerErrorCode.INTERNAL_ERROR, "trust down");
         };
-        service = new ConsumerService(trustAccessClient);
+        service = new ConsumerService(trustAccessClient, "http://localhost:8081");
 
         CreateConsumptionJobRequest request = new CreateConsumptionJobRequest("dataset-beta", "ar-002", "download");
         var created = service.createConsumptionJob(request);
+        Awaitility.await().atMost(Duration.ofSeconds(5))
+            .until(() -> "FAILED".equals(service.getConsumptionJob(created.jobId()).status()));
         var status = service.getConsumptionJob(created.jobId());
 
         assertEquals("RUNNING", created.status());
@@ -134,6 +141,8 @@ class ConsumerServiceTest {
 
         CreateConsumptionJobRequest request = new CreateConsumptionJobRequest("dataset-approval", "ar-003", "download");
         var created = service.createConsumptionJob(request);
+        Awaitility.await().atMost(Duration.ofSeconds(5))
+            .until(() -> "SUCCEEDED".equals(service.getConsumptionJob(created.jobId()).status()));
         var status = service.getConsumptionJob(created.jobId());
         List<Map<String, Object>> summary = service.listConsumptionJobs("dataset-approval", true);
         List<Map<String, Object>> detailed = service.listConsumptionJobs("dataset-approval", false);
@@ -182,10 +191,13 @@ class ConsumerServiceTest {
                     "2026-06-10T00:00:00Z"
             );
         };
-        service = new ConsumerService(trustAccessClient);
+        service = new ConsumerService(trustAccessClient, "http://localhost:8081");
 
         service.createConsumptionJob(new CreateConsumptionJobRequest("patient-alpha-dataset", "ar-101", "download"));
         service.createConsumptionJob(new CreateConsumptionJobRequest("patient-beta-dataset", "ar-102", "download"));
+        Awaitility.await().atMost(Duration.ofSeconds(5))
+            .until(() -> service.listConsumptionJobs("", false).stream()
+                 .allMatch(j -> !"RUNNING".equals(j.get("status"))));
 
         List<Map<String, Object>> filtered = service.listConsumptionJobs("ALPHA", false);
 
@@ -328,7 +340,7 @@ class ConsumerServiceTest {
         private final JsonNode payload;
 
         private TestableConsumerService(TrustAccessClient trustAccessClient, JsonNode payload) {
-            super(trustAccessClient);
+            super(trustAccessClient, "http://localhost:8081");
             this.payload = payload;
         }
 
