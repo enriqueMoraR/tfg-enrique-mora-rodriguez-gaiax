@@ -30,6 +30,7 @@ La documentación se alinea con `gaiax-health-deployment/docs/api-contracts.md` 
 | --- | --- | --- |
 | `POST` | `/api/v1/datasets/fhir` | Contrato de negocio del provider. Recibe dataset envelope con `metadata` y `payload` |
 | `GET` | `/api/v1/datasets` | Listado de datasets persistidos |
+| `GET` | `/api/v1/datasets/{id}/raw` | Recupera el payload FHIR crudo asociado a un dataset concreto |
 | `POST` | `/Bundle?x-request-id={{requestId}}` | Fachada FHIR del provider. Para smoke test usa `fhirBundle.sample.json`; para carga real usa `multipleFhirBundle.*.json` |
 | `GET` | `/Patient?_count=20` | Recuperación de pacientes persistidos |
 | `GET` | `/Observation?_count=20&_sort=-date` | Recuperación de observaciones persistidas |
@@ -39,13 +40,18 @@ La documentación se alinea con `gaiax-health-deployment/docs/api-contracts.md` 
 | `POST` | `/api/v1/consumption-jobs` | Alta de un trabajo de consumo autorizado |
 | `GET` | `/api/v1/consumption-jobs` | Listado de trabajos de consumo |
 | `GET` | `/api/v1/consumption-jobs/{id}` | Consulta de estado de un trabajo de consumo |
+| `GET` | `/api/v1/proveedores` | Recuperación de profesionales médicos y centros de salud (hospitales) |
+| `POST` | `/api/v1/historial/init` | Inicializa el historial clínico de un paciente con datos completos |
+| `GET` | `/api/v1/historial/paciente/{pacienteId}` | Recuperación del historial clínico (diagnósticos y tratamientos) de un paciente |
+| `POST` | `/api/v1/historial/{historialId}/diagnosticos` | Añadir un diagnóstico a un historial clínico |
+| `POST` | `/api/v1/historial/{historialId}/tratamientos` | Añadir un tratamiento a un historial clínico |
 | `GET` | `/api/health/provider`, `/api/health/trust`, `/api/health/consumer` | Verificación de salud de los servicios vía proxy del dashboard |
 | `GET` | `http://localhost:3000/` | Comprobación básica del dashboard |
 
 ## Cabeceras
 
-- `Content-Type: application/fhir+json`
-- `Accept: application/fhir+json`
+- `Content-Type: application/fhir+json` (para `/api/fhir/*`) o `application/json` (para `/api/v1/*`)
+- `Accept: application/fhir+json` (para `/api/fhir/*`) o `application/json` (para `/api/v1/*`)
 - `X-Request-Id: <id-opcional>` para trazabilidad de la petición
 
 ## 1. Ingesta FHIR
@@ -106,9 +112,7 @@ curl -X POST 'http://localhost:3000/api/fhir/Bundle?x-request-id=req-postman-loa
   --data-binary '@documentacion/postman/multipleFhirBundle.part-01.json'
 ```
 
-Repite el mismo patrón cambiando el sufijo del `requestId` y el fichero de entrada para cada partición.
-
-## 2. Contrato de negocio del provider
+## 2. Contrato de negocio del provider (Escritura)
 
 **Endpoint**
 
@@ -120,9 +124,34 @@ Publica un dataset con envoltorio de negocio (`datasetId`, `datasetType`, `clini
 
 **Nota**
 
-Este endpoint no consume `Bundle` crudo. Si el objetivo es enviar bundles FHIR desde Postman, usa la fachada `/api/fhir/Bundle` documentada arriba.
+Este endpoint no consume `Bundle` crudo de la misma forma que FHIR. Si el objetivo es enviar bundles FHIR desde Postman, usa la fachada `/api/fhir/Bundle` documentada arriba.
 
-## 3. Leer dataset crudo
+## 3. Contrato de negocio del provider (Lectura de Datasets)
+
+### 3.1. Listar datasets
+
+**Endpoint**
+
+`GET http://localhost:8081/api/v1/datasets`
+
+**Parámetros de consulta (Query Params) opcionales:**
+- `clinicalCase`: Filtrar por caso clínico (ej. `asma`).
+- `status`: Filtrar por estado.
+- `page`: Número de página (por defecto `0`).
+- `size`: Tamaño de la página (por defecto `20`).
+
+**Propósito**
+
+Devuelve el listado de datasets persistidos en el sistema.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8081/api/v1/datasets?page=0&size=20' \
+  -H 'Accept: application/json'
+```
+
+### 3.2. Leer dataset crudo
 
 **Endpoint**
 
@@ -131,6 +160,13 @@ Este endpoint no consume `Bundle` crudo. Si el objetivo es enviar bundles FHIR d
 **Propósito**
 
 Recupera el payload FHIR crudo asociado a un dataset concreto para depuración, auditoría y verificación de trazabilidad.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8081/api/v1/datasets/patient-02314/raw' \
+  -H 'Accept: application/json'
+```
 
 ## 4. Trust: solicitudes de acceso y políticas
 
@@ -163,7 +199,24 @@ curl -X POST 'http://localhost:8082/api/v1/access-requests' \
   }'
 ```
 
-### 4.2. Validar política
+### 4.2. Consultar estado de una solicitud de acceso
+
+**Endpoint**
+
+`GET http://localhost:8082/api/v1/access-requests/{id}`
+
+**Propósito**
+
+Consulta los detalles y el estado de una solicitud de acceso previamente creada.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8082/api/v1/access-requests/req-access-001' \
+  -H 'Accept: application/json'
+```
+
+### 4.3. Validar política
 
 **Endpoint**
 
@@ -224,9 +277,20 @@ curl -X POST 'http://localhost:8083/api/v1/consumption-jobs' \
 
 `GET http://localhost:8083/api/v1/consumption-jobs`
 
+**Parámetros de consulta (Query Params) opcionales:**
+- `patientId`: Filtra los trabajos por el ID de un paciente específico.
+- `summary`: Si es `true`, devuelve un resumen (por defecto `false`).
+
 **Propósito**
 
-Devuelve el histórico de trabajos de consumo y permite filtrado por `patientId`.
+Devuelve el histórico de trabajos de consumo y permite filtrado.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8083/api/v1/consumption-jobs?summary=true' \
+  -H 'Accept: application/json'
+```
 
 ### 5.3. Consultar un trabajo
 
@@ -245,7 +309,130 @@ curl -X GET 'http://localhost:8083/api/v1/consumption-jobs/job-001' \
   -H 'Accept: application/json'
 ```
 
-## 6. Recuperar pacientes
+## 6. Proveedores: Médicos y Hospitales
+
+**Endpoint**
+
+`GET http://localhost:8081/api/v1/proveedores`
+
+**Propósito**
+
+Devuelve el listado de profesionales de la salud y centros registrados en el sistema.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8081/api/v1/proveedores' \
+  -H 'Accept: application/json'
+```
+
+## 7. Historial Clínico
+
+### 7.1. Inicializar Historial Clínico
+
+**Endpoint**
+
+`POST http://localhost:8081/api/v1/historial/init`
+
+**Propósito**
+
+Inicializa un nuevo historial clínico para un paciente con diagnósticos, tratamientos, dispositivos y datos de filiación.
+
+**cURL completo**
+
+```bash
+curl -X POST 'http://localhost:8081/api/v1/historial/init' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  --data-raw '{
+    "fhirId": "patient-123",
+    "nifDni": "12345678A",
+    "nombreCompleto": "Juan Perez",
+    "fechaNacimiento": "1980-01-01",
+    "genero": "MALE",
+    "diagnosticos": [
+      {
+        "cie10": "J45",
+        "descripcion": "Asma no especificada"
+      }
+    ],
+    "tratamientos": [
+      {
+        "nombreTratamiento": "Salbutamol",
+        "indicaciones": "Inhalador PRN",
+        "principioActivo": "Salbutamol"
+      }
+    ],
+    "filiacion": [],
+    "antecedentes": [],
+    "dispositivos": []
+  }'
+```
+
+### 7.2. Recuperar Historial de un Paciente
+
+**Endpoint**
+
+`GET http://localhost:8081/api/v1/historial/paciente/{pacienteId}`
+
+**Propósito**
+
+Recupera el historial clínico completo asociado a un paciente, incluyendo sus diagnósticos y tratamientos.
+
+**cURL completo**
+
+```bash
+curl -X GET 'http://localhost:8081/api/v1/historial/paciente/patient-123' \
+  -H 'Accept: application/json'
+```
+
+### 7.3. Añadir Diagnóstico al Historial
+
+**Endpoint**
+
+`POST http://localhost:8081/api/v1/historial/{historialId}/diagnosticos`
+
+**Propósito**
+
+Registra un nuevo diagnóstico en un historial clínico existente.
+
+**cURL completo**
+
+```bash
+curl -X POST 'http://localhost:8081/api/v1/historial/123e4567-e89b-12d3-a456-426614174000/diagnosticos' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  --data-raw '{
+    "cie10": "I10",
+    "descripcion": "Hipertensión esencial",
+    "fechaDiagnostico": "2026-07-16T10:00:00Z"
+  }'
+```
+
+### 7.4. Añadir Tratamiento al Historial
+
+**Endpoint**
+
+`POST http://localhost:8081/api/v1/historial/{historialId}/tratamientos`
+
+**Propósito**
+
+Registra un nuevo tratamiento en un historial clínico existente.
+
+**cURL completo**
+
+```bash
+curl -X POST 'http://localhost:8081/api/v1/historial/123e4567-e89b-12d3-a456-426614174000/tratamientos' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  --data-raw '{
+    "nombreTratamiento": "Enalapril",
+    "indicaciones": "10mg/dia",
+    "fechaInicio": "2026-07-16T10:00:00Z"
+  }'
+```
+
+## 8. Recuperar pacientes (Fachada FHIR)
 
 **Endpoint**
 
@@ -266,11 +453,15 @@ curl -X GET 'http://localhost:3000/api/fhir/Patient?_count=20' \
   -H 'Accept: application/fhir+json'
 ```
 
-## 7. Recuperar observaciones
+## 9. Recuperar observaciones (Fachada FHIR)
 
 **Endpoint**
 
 `GET {{baseUrl}}/Observation?_count=20&_sort=-date`
+
+**Parámetros de consulta (Query Params) opcionales soportados por la fachada:**
+- `patient`: Filtra las observaciones de un paciente concreto (ej. `patient=Patient/123`).
+- `_count`: Limita el número de resultados (por defecto 50).
 
 **Cabeceras**
 
@@ -287,7 +478,7 @@ curl -X GET 'http://localhost:3000/api/fhir/Observation?_count=20&_sort=-date' \
   -H 'Accept: application/fhir+json'
 ```
 
-## 8. Verificación de salud del stack
+## 10. Verificación de salud del stack
 
 **Provider**
 
@@ -334,7 +525,7 @@ curl -X GET 'http://localhost:3000/api/health/consumer' \
   -H 'Accept: application/json'
 ```
 
-## 9. Verificación del dashboard
+## 11. Verificación del dashboard
 
 **Endpoint**
 
@@ -351,25 +542,25 @@ curl -X GET 'http://localhost:3000/' \
   -H 'Accept: text/html'
 ```
 
-## 10. Orden de ejecución recomendado
+## 12. Orden de ejecución recomendado
 
 1. Arrancar `postgres`.
 2. Arrancar `provider`.
 3. Arrancar `trust`.
 4. Arrancar `consumer`.
 5. Arrancar `dashboard`.
-6. Enviar la petición `POST` de ingesta.
+6. Enviar la petición `POST` de ingesta FHIR u operaciones del historial (ej. `/init`).
 7. Validar con los `GET`.
 8. Refrescar el dashboard y comprobar los datos reales.
 
-## 11. Importación en Postman
+## 13. Importación en Postman
 
 1. Importa primero `documentacion/postman/gaiax-health-local.postman_environment.json`.
 2. Importa después `documentacion/postman/gaiax-health-e2e.postman_collection.json`.
 3. Selecciona el environment `Gaia-X Health Local` en Postman.
 4. Ejecuta la colección en el orden recomendado.
 
-## 12. Notas
+## 14. Notas
 
 - El dashboard consume el endpoint FHIR a través de `http://localhost:3000/api/fhir`.
 - El contrato funcional de provider para datasets está en `gaiax-health-deployment/docs/api-contracts.md`; la ingesta de bundles FHIR crudos se hace por la fachada `/api/fhir`.
