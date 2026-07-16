@@ -1,0 +1,6 @@
+1. provider_list | GET | /api/v1/datasets?clinicalCase=heart-rate&status=PUBLISHED
+2. trust_policy  | POST | /api/v1/policies/validate
+3. consumer_job_status | GET | /api/v1/consumption-jobs/{jobId}
+Perfiles:
+- baseline: requests=300, concurrency=10
+- scaled: requests=1200, concurrency=40

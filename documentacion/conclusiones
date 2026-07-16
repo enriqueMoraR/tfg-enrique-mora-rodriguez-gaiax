@@ -1,0 +1,36 @@
+**CONCLUSIONES**
+
+**1. CUMPLIMIENTO DE OBJETIVOS Y SUBOBJETIVOS**
+
+El presente Trabajo de Fin de Grado ha culminado con la implementación exitosa de un prototipo funcional de un espacio de datos de salud, validando la viabilidad de aplicar los principios de soberanía y federación de Gaia-X en un entorno de alta sensibilidad.
+
+*   **Diseño de una Arquitectura Federada Compatible con Gaia-X:** Se ha cumplido este objetivo mediante el diseño de una arquitectura de microservicios que distingue los roles de proveedor y consumidor de datos. La interoperabilidad se ha cimentado en los Gaia-X Federation Services (GXFS), utilizando sus especificaciones para la gestión de identidades y la creación de catálogos de servicios autocontenidos (Self-Descriptions).
+
+*   **Implementación de Conectores de Datos (EDC):** Se ha logrado la transferencia de datos controlada mediante el despliegue y configuración de un Eclipse Data Connector (EDC). Este componente ha sido fundamental para materializar las políticas de uso de datos y la negociación de acuerdos de contrato (Contract Agreements) entre los participantes del ecosistema, actuando como el punto de control de políticas (Policy Enforcement Point).
+
+*   **Garantía de la Soberanía de Datos:** La soberanía del dato se ha garantizado a nivel técnico mediante la implementación de un framework de confianza. Se han definido políticas de acceso en el EDC que exigen un consentimiento explícito del paciente para cada transferencia. Este consentimiento se gestiona a través de un sistema de identidades descentralizadas (DID), lo que asegura que el propietario del dato mantiene el control sobre su uso.
+
+**2. DESARROLLO DE HABILIDADES**
+
+La naturaleza del proyecto ha impulsado el desarrollo de un conjunto de competencias técnicas y de gestión de alto valor.
+
+*   **Habilidades Técnicas:**
+    *   **Arquitectura Gaia-X y Ecosistemas Federados:** Se ha adquirido un conocimiento profundo de los componentes de Gaia-X, no solo a nivel teórico, sino práctico, al integrar servicios como el EDC y alinear el diseño con los Trust & Compliance Services.
+    *   **Contenerización y Orquestación:** Se ha desarrollado una sólida competencia en el uso de Docker para la contenerización de todos los servicios del proyecto, incluyendo los conectores EDC y las aplicaciones de negocio, facilitando su despliegue y escalabilidad.
+    *   **Estándares de Interoperabilidad (FHIR):** Se ha aplicado el estándar HL7 FHIR para la modelización de los activos de datos (Data Assets), lo que ha permitido garantizar la interoperabilidad semántica entre los distintos actores del ecosistema de salud.
+    *   **Identidades Descentralizadas (DID):** Se ha obtenido experiencia en la implementación de sistemas de identidad soberana, comprendiendo su rol crítico en la construcción de un framework de confianza verificable.
+
+*   **Habilidades de Gestión y Proyecto:**
+    *   **Documentación Técnica Avanzada:** Se ha reforzado la capacidad de generar documentación técnica precisa, incluyendo la especificación de APIs mediante OpenAPI y la creación de diagramas de secuencia para modelar los flujos de datos complejos del EDC.
+    *   **Resolución de Problemas de Integración:** La depuración de fallos de interoperabilidad entre los distintos componentes de software (conectores, backends, sistemas de identidad) ha fortalecido la capacidad de análisis crítico y resolución de problemas en sistemas distribuidos.
+
+**3. PRESUPUESTO DESGLOSADO**
+
+El proyecto se ha ejecutado en un total de **340 horas**, distribuidas eficientemente a lo largo de su ciclo de vida.
+
+*   **Análisis y Diseño (30 horas):** Dedicadas a la investigación del estado del arte, la definición de requisitos funcionales y no funcionales, y el diseño de la arquitectura de alto nivel.
+*   **Desarrollo por Sprints (240 horas):** Invertidas en cuatro sprints de 60 horas cada uno, enfocados en la implementación incremental de funcionalidades: configuración del entorno, desarrollo de los conectores EDC, implementación de la lógica de negocio y del motor de consentimiento.
+*   **Pruebas (40 horas):** Destinadas a la ejecución de pruebas unitarias, pruebas de integración entre los microservicios y la validación de las políticas de seguridad y acceso a los datos.
+*   **Despliegue y Documentación (30 horas):** Empleadas en la automatización del despliegue de los contenedores, la configuración final del entorno y la redacción de la presente memoria técnica.
+
+Los recursos de software se han basado en tecnologías de código abierto (Java, Docker, Eclipse Data Connector), mientras que el hardware ha consistido en un servidor local para el despliegue, minimizando los costes económicos directos.

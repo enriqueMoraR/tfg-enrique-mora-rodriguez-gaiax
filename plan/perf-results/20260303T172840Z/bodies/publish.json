@@ -1,0 +1,38 @@
+{
+  "datasetId": "ds-load-20260303T172840Z",
+  "datasetType": "FHIR_BUNDLE",
+  "clinicalCase": "heart-rate",
+  "payload": {
+    "resourceType": "Bundle",
+    "type": "collection",
+    "entry": [
+      {
+        "resource": {
+          "resourceType": "Observation",
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "8867-4"
+              }
+            ]
+          },
+          "subject": {
+            "reference": "Patient/1"
+          },
+          "effectiveDateTime": "2026-03-03T17:28:40Z",
+          "valueQuantity": {
+            "value": 72,
+            "unit": "beats/min"
+          }
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "owner": "provider-loadtest",
+    "purpose": "research",
+    "tags": ["load", "t10", "heart-rate"]
+  }
+}

@@ -1,0 +1,35 @@
+% Defensa técnica convertido desde TFG_explicacion.md
+\chapter{Explicación Técnica para la Defensa}
+\label{ch:defensa}
+
+\section{Visión general del proyecto}
+Resumen del problema, objetivos del MVP y casos de uso clínicos implementados (presión arterial y frecuencia cardíaca). El sistema opera con más de 10.000 eventos clínicos de prueba.
+
+\section{Arquitectura general}
+Diagrama de sistema (ver figura \ref{fig:architecture}) y flujo E2E: Publicación → Solicitud → Autorización → Consumo → Visualización.
+
+\section{Provider Node (Puerto 8081)}
+Rol: publicador de datos FHIR. APIs destacadas: POST /api/v1/datasets/fhir y GET /api/v1/datasets. Se validan Bundles y Observations; modelo de datos DatasetRecord.
+
+\section{Trust Service (Puerto 8082)}
+Rol: árbitro y Authorization Server. Evalúa políticas, emite JWT (client_credentials) y registra audit trail.
+
+\section{Consumer Node (Puerto 8083)}
+Rol: solicita autorizaciones, ejecuta jobs de consumo, expone API para el dashboard y almacena resultados en memoria (MVP) con opción a PostgreSQL en producción.
+
+\section{Frontend: Dashboard de Pacientes}
+Componentes: SearchBar, MetricsLineChart, DistributionPie, Table. Configuración Vite + TanStack Query + Recharts.
+
+\section{Comunicación entre servicios}
+HTTP REST entre servicios; headers: Authorization: Bearer <JWT>, X-Request-Id para correlaci\'on; GAIAX_TRUST_BASE_URL configurada por entorno.
+
+\section{Testing y Resultados de Rendimiento}
+Resumen de estrategia de tests y KPIs obtenidos (Error rate 0.00%, P95 latency 23-27ms, Throughput 150-168 req/s). Referencias a plan/informe_carga_t10.md.
+
+\section{Despliegue}
+Instrucciones rápidas: docker compose -f compose.yaml up -d --build; healthchecks y dependencias por readiness.
+
+\section{Preguntas frecuentes del tribunal}
+Sección con preguntas y respuestas preparadas (p.ej., por qué FHIR, por qué EDC-first, cómo se asegura la soberanía de datos, limitaciones del MVP).
+
+% Fin de defensa.tex

@@ -1,0 +1,697 @@
+[
+  {
+    "id_paciente": "d227b7c2-19e4-4d8e-9c76-5d63f03a6601",
+    "nif_dni": "12345678Z",
+    "nombre_completo": "Juan García Muñoz",
+    "fecha_nacimiento": "2016-01-01",
+    "genero": "male",
+    "grupo_sanguineo": "O+",
+    "nacionalidad": "Española",
+    "telefono": "+34600000001",
+    "email": "juan.garcia@example.com",
+    "direccion_fisica": "Calle Falsa 123, Madrid",
+    "id_seguro_social": "ES0000000001",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "12d8a432-841d-4f11-9a99-9b43c68367a1",
+      "fecha_creacion": "2026-01-01T10:00:00Z",
+      "fecha_ultima_actualizacion": "2026-07-10T10:00:00Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "3f822a10-2f9b-449e-b81f-723a1a9e913a",
+          "comunidad_autonoma": "Comunidad de Madrid",
+          "centro_asignado": "CS La Chopera",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "428ca1de-6d7a-42cd-9436-bd13d7d7c67c",
+          "tipo": "Personales",
+          "descripcion": "Alergia al polen",
+          "fecha_inicio": "2020-05-10T00:00:00Z",
+          "es_activo": true,
+          "cie_10": "J30.1"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "a9a3b5c1-9d22-48df-b924-a1df1f8c7b8e",
+          "cie_10": "J45.909",
+          "cie_11": "CA23",
+          "descripcion": "Asma no especificada",
+          "fecha_diagnostico": "2021-03-15T09:30:00Z",
+          "fecha_resolucion": null,
+          "severidad": "Leve"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "f2a2d48a-6f0f-4318-ba22-ec90928a6f8b",
+          "nombre_tratamiento": "Tratamiento de control para asma",
+          "indicaciones": "Inhalador según necesidad",
+          "fecha_inicio": "2021-03-15T10:00:00Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "A demanda",
+          "medicaciones": [
+            {
+              "id_medicacion": "89b1d7d7-d9df-416b-a78a-cbf46e96bb92",
+              "nombre_comercial": "Ventolín",
+              "principio_activo": "Salbutamol",
+              "dosis": "100 mcg",
+              "via_administracion": "Inhalatoria",
+              "frecuencia": "A demanda",
+              "fecha_inicio": "2021-03-15T10:00:00Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "e7b0c309-8581-42e1-8f5b-6cf21df4f610",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/1",
+          "fecha_emision": "2026-06-15T10:00:00Z",
+          "id_medico_autor": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+          "resumen_clinico": "Paciente acude a revisión por asma. Control adecuado."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "f7d71cd3-49d9-482a-a92c-63b7e7ab4376",
+          "tipo": "Radiologia",
+          "resultado": "Normal",
+          "observaciones": "Sin hallazgos patológicos",
+          "fecha_realizacion": "2025-10-10T11:00:00Z",
+          "uri_imagen": "https://pacs.example.com/images/1",
+          "codigo_loinc": "36643-5"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "1e75fc3c-1b77-4b7b-9f93-549b068841c1",
+        "tipo": "Wearable",
+        "modelo": "SmartBand Kids",
+        "fabricante": "HealthTech Inc",
+        "fecha_instalacion": "2025-12-25T08:00:00Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "c92e9d29-cb6a-4952-b8e4-18a7b9efb783",
+            "valor": 85.0,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T07:15:00Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "7f09315b-118e-4b68-b769-6d6f22849a71",
+        "id_proposito": "993a4bc6-8d5c-48c5-928d-19036f01df22",
+        "fecha_inicio": "2026-01-01T00:00:00Z",
+        "fecha_expiracion": "2036-01-01T00:00:00Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico, Compartición anonimizada",
+        "id_dominio_gaia_fk": "bb1d8a4e-128a-4933-911e-436f56c70b55",
+        "firma_digital": "sig_abc123"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "8024227f-9f79-4592-b6ff-18341bb2f458",
+        "id_usuario_acceso": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T07:10:00Z",
+        "motivo_acceso": "Consulta de urgencia",
+        "ip_origen": "192.168.1.10",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "f5b8c9d2-3c1a-4d9e-b876-1e6a0d4c9f11",
+    "nif_dni": "23456789A",
+    "nombre_completo": "Carmen López Muñoz",
+    "fecha_nacimiento": "2001-01-01",
+    "genero": "female",
+    "grupo_sanguineo": "A-",
+    "nacionalidad": "Española",
+    "telefono": "+34600000002",
+    "email": "carmen.lopez@example.com",
+    "direccion_fisica": "Avenida Siempre Viva 42, Barcelona",
+    "id_seguro_social": "ES0000000002",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "e1f2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c",
+      "fecha_creacion": "2026-01-02T10:00:00Z",
+      "fecha_ultima_actualizacion": "2026-07-11T10:00:00Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "c4d5e6f7-a8b9-4c0d-1e2f-3a4b5c6d7e8f",
+          "comunidad_autonoma": "Cataluña",
+          "centro_asignado": "CAP Sagrada Familia",
+          "nivel_socieconomico": "Medio-Alto",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+          "tipo": "Familiares",
+          "descripcion": "Antecedentes de migraña materna",
+          "fecha_inicio": "2015-05-10T00:00:00Z",
+          "es_activo": true,
+          "cie_10": "G43.9"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+          "cie_10": "G43.909",
+          "cie_11": "8A80",
+          "descripcion": "Migraña, no especificada",
+          "fecha_diagnostico": "2018-04-20T09:30:00Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+          "nombre_tratamiento": "Tratamiento abortivo de migraña",
+          "indicaciones": "Tomar al inicio del dolor",
+          "fecha_inicio": "2018-04-20T10:00:00Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "A demanda",
+          "medicaciones": [
+            {
+              "id_medicacion": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+              "nombre_comercial": "Ibuprofeno",
+              "principio_activo": "Ibuprofeno",
+              "dosis": "400 mg",
+              "via_administracion": "Oral",
+              "frecuencia": "A demanda (max 3/día)",
+              "fecha_inicio": "2018-04-20T10:00:00Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+          "tipo": "Urgencias",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/2",
+          "fecha_emision": "2026-06-16T10:00:00Z",
+          "id_medico_autor": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+          "resumen_clinico": "Paciente acude por dolor de cabeza intenso."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+          "tipo": "Analitica",
+          "resultado": "Normal",
+          "observaciones": "Parámetros dentro de rango",
+          "fecha_realizacion": "2025-11-11T11:00:00Z",
+          "uri_imagen": null,
+          "codigo_loinc": "24356-8"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
+        "tipo": "Wearable",
+        "modelo": "Apple Watch Series 9",
+        "fabricante": "Apple",
+        "fecha_instalacion": "2024-12-25T08:00:00Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e",
+            "valor": 68.0,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T07:15:00Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f",
+        "id_proposito": "993a4bc6-8d5c-48c5-928d-19036f01df22",
+        "fecha_inicio": "2026-01-01T00:00:00Z",
+        "fecha_expiracion": "2036-01-01T00:00:00Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico",
+        "id_dominio_gaia_fk": "bb1d8a4e-128a-4933-911e-436f56c70b55",
+        "firma_digital": "sig_def456"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a",
+        "id_usuario_acceso": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T07:10:00Z",
+        "motivo_acceso": "Consulta ordinaria",
+        "ip_origen": "192.168.1.11",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+    "nif_dni": "34567890B",
+    "nombre_completo": "Miguel Martínez Muñoz",
+    "fecha_nacimiento": "1981-01-01",
+    "genero": "male",
+    "grupo_sanguineo": "B+",
+    "nacionalidad": "Española",
+    "telefono": "+34600000003",
+    "email": "miguel.martinez@example.com",
+    "direccion_fisica": "Plaza Mayor 1, Valencia",
+    "id_seguro_social": "ES0000000003",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e",
+      "fecha_creacion": "2026-01-03T10:00:00Z",
+      "fecha_ultima_actualizacion": "2026-07-12T10:00:00Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f",
+          "comunidad_autonoma": "Comunidad Valenciana",
+          "centro_asignado": "CS Ruzafa",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a",
+          "tipo": "Sociales",
+          "descripcion": "Fumador ocasional",
+          "fecha_inicio": "2000-01-01T00:00:00Z",
+          "es_activo": true,
+          "cie_10": "F17.200"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b",
+          "cie_10": "E11.9",
+          "cie_11": "5A11",
+          "descripcion": "Diabetes mellitus tipo 2 sin complicaciones",
+          "fecha_diagnostico": "2022-08-10T09:30:00Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c",
+          "nombre_tratamiento": "Control glucémico oral",
+          "indicaciones": "Tomar con las comidas principales",
+          "fecha_inicio": "2022-08-10T10:00:00Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+              "nombre_comercial": "Dianben",
+              "principio_activo": "Metformina",
+              "dosis": "850 mg",
+              "via_administracion": "Oral",
+              "frecuencia": "1 cada 12h",
+              "fecha_inicio": "2022-08-10T10:00:00Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
+          "tipo": "Alta",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/3",
+          "fecha_emision": "2026-06-17T10:00:00Z",
+          "id_medico_autor": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+          "resumen_clinico": "Paciente estabilizado con medicación oral."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f",
+          "tipo": "Analitica",
+          "resultado": "HbA1c 6.8%",
+          "observaciones": "Control glucémico adecuado",
+          "fecha_realizacion": "2026-05-10T11:00:00Z",
+          "uri_imagen": null,
+          "codigo_loinc": "4548-4"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a",
+        "tipo": "Glucómetro",
+        "modelo": "Freestyle Libre 3",
+        "fabricante": "Abbott",
+        "fecha_instalacion": "2025-01-10T08:00:00Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b",
+            "valor": 110.5,
+            "unidad": "mg/dL",
+            "timestamp": "2026-07-14T07:15:00Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c",
+        "id_proposito": "993a4bc6-8d5c-48c5-928d-19036f01df22",
+        "fecha_inicio": "2026-01-01T00:00:00Z",
+        "fecha_expiracion": "2036-01-01T00:00:00Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico, Compartición anonimizada",
+        "id_dominio_gaia_fk": "bb1d8a4e-128a-4933-911e-436f56c70b55",
+        "firma_digital": "sig_ghi789"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d",
+        "id_usuario_acceso": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T07:10:00Z",
+        "motivo_acceso": "Revisión endocrinología",
+        "ip_origen": "192.168.1.12",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e",
+    "nif_dni": "45678901C",
+    "nombre_completo": "Ana Sánchez Muñoz",
+    "fecha_nacimiento": "1961-01-01",
+    "genero": "female",
+    "grupo_sanguineo": "AB+",
+    "nacionalidad": "Española",
+    "telefono": "+34600000004",
+    "email": "ana.sanchez@example.com",
+    "direccion_fisica": "Calle Sierpes 10, Sevilla",
+    "id_seguro_social": "ES0000000004",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f",
+      "fecha_creacion": "2026-01-04T10:00:00Z",
+      "fecha_ultima_actualizacion": "2026-07-13T10:00:00Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a",
+          "comunidad_autonoma": "Andalucía",
+          "centro_asignado": "CS El Porvenir",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b",
+          "tipo": "Personales",
+          "descripcion": "Menopausia precoz",
+          "fecha_inicio": "2010-01-01T00:00:00Z",
+          "es_activo": true,
+          "cie_10": "E28.3"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c",
+          "cie_10": "M81.0",
+          "cie_11": "FB83",
+          "descripcion": "Osteoporosis posmenopáusica sin fractura patológica",
+          "fecha_diagnostico": "2020-11-05T09:30:00Z",
+          "fecha_resolucion": null,
+          "severidad": "Moderada"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
+          "nombre_tratamiento": "Tratamiento antirresortivo",
+          "indicaciones": "Tomar en ayunas, permanecer erguida 30 min",
+          "fecha_inicio": "2020-11-05T10:00:00Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Semanal",
+          "medicaciones": [
+            {
+              "id_medicacion": "1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e",
+              "nombre_comercial": "Fosamax",
+              "principio_activo": "Alendronato",
+              "dosis": "70 mg",
+              "via_administracion": "Oral",
+              "frecuencia": "1 a la semana",
+              "fecha_inicio": "2020-11-05T10:00:00Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/4",
+          "fecha_emision": "2026-06-18T10:00:00Z",
+          "id_medico_autor": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+          "resumen_clinico": "Densidad mineral ósea estable."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a",
+          "tipo": "Radiologia",
+          "resultado": "T-score -2.8",
+          "observaciones": "Densitometría ósea",
+          "fecha_realizacion": "2026-05-15T11:00:00Z",
+          "uri_imagen": "https://pacs.example.com/images/4",
+          "codigo_loinc": "38265-5"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b",
+        "tipo": "Wearable",
+        "modelo": "Fitbit Charge 6",
+        "fabricante": "Google",
+        "fecha_instalacion": "2023-12-25T08:00:00Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c",
+            "valor": 72.0,
+            "unidad": "bpm",
+            "timestamp": "2026-07-14T07:15:00Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+        "id_proposito": "993a4bc6-8d5c-48c5-928d-19036f01df22",
+        "fecha_inicio": "2026-01-01T00:00:00Z",
+        "fecha_expiracion": "2036-01-01T00:00:00Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico, Investigacion",
+        "id_dominio_gaia_fk": "bb1d8a4e-128a-4933-911e-436f56c70b55",
+        "firma_digital": "sig_jkl012"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e",
+        "id_usuario_acceso": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T07:10:00Z",
+        "motivo_acceso": "Renovación recetas",
+        "ip_origen": "192.168.1.13",
+        "resultado": "Exitoso"
+      }
+    ]
+  },
+  {
+    "id_paciente": "8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f",
+    "nif_dni": "56789012D",
+    "nombre_completo": "Pablo Pérez Muñoz",
+    "fecha_nacimiento": "1951-01-01",
+    "genero": "male",
+    "grupo_sanguineo": "O-",
+    "nacionalidad": "Española",
+    "telefono": "+34600000005",
+    "email": "pablo.perez@example.com",
+    "direccion_fisica": "Gran Vía 45, Bilbao",
+    "id_seguro_social": "ES0000000005",
+    "estado_activo": true,
+    "historial": {
+      "id_historial": "9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a",
+      "fecha_creacion": "2026-01-05T10:00:00Z",
+      "fecha_ultima_actualizacion": "2026-07-14T10:00:00Z",
+      "version_fhir": "4.0.1",
+      "estado": true,
+      "filiacion": [
+        {
+          "id_filiacion": "0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b",
+          "comunidad_autonoma": "País Vasco",
+          "centro_asignado": "CS Casco Viejo",
+          "nivel_socieconomico": "Medio",
+          "idioma_preferido": "es"
+        }
+      ],
+      "antecedentes": [
+        {
+          "id_antecedente": "1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c",
+          "tipo": "Sociales",
+          "descripcion": "Fumador empedernido",
+          "fecha_inicio": "1970-01-01T00:00:00Z",
+          "es_activo": true,
+          "cie_10": "F17.210"
+        }
+      ],
+      "diagnosticos": [
+        {
+          "id_diagnostico": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+          "cie_10": "J44.9",
+          "cie_11": "CA22",
+          "descripcion": "Enfermedad pulmonar obstructiva crónica, no especificada",
+          "fecha_diagnostico": "2015-06-15T09:30:00Z",
+          "fecha_resolucion": null,
+          "severidad": "Grave"
+        }
+      ],
+      "tratamientos": [
+        {
+          "id_tratamiento": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e",
+          "nombre_tratamiento": "Broncodilatadores de mantenimiento",
+          "indicaciones": "Uso diario, no suspender",
+          "fecha_inicio": "2015-06-15T10:00:00Z",
+          "fecha_fin": null,
+          "es_activado": true,
+          "frecuencia": "Diaria",
+          "medicaciones": [
+            {
+              "id_medicacion": "4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f",
+              "nombre_comercial": "Spiriva Respimat",
+              "principio_activo": "Tiotropio",
+              "dosis": "2.5 mcg",
+              "via_administracion": "Inhalatoria",
+              "frecuencia": "2 inhalaciones al día",
+              "fecha_inicio": "2015-06-15T10:00:00Z",
+              "fecha_fin": null,
+              "es_alergia": false
+            }
+          ]
+        }
+      ],
+      "informes": [
+        {
+          "id_informe": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a",
+          "tipo": "Resumen",
+          "formato": "PDF",
+          "uri_documento": "https://pacs.example.com/reports/5",
+          "fecha_emision": "2026-06-19T10:00:00Z",
+          "id_medico_autor": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+          "resumen_clinico": "Dificultad respiratoria basal. Mantiene oxigenación límite."
+        }
+      ],
+      "pruebas": [
+        {
+          "id_prueba": "6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b",
+          "tipo": "Analitica",
+          "resultado": "SpO2 92%",
+          "observaciones": "Gasometría arterial",
+          "fecha_realizacion": "2026-06-19T11:00:00Z",
+          "uri_imagen": null,
+          "codigo_loinc": "2708-6"
+        }
+      ]
+    },
+    "dispositivos": [
+      {
+        "id_dispositivo": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c",
+        "tipo": "Wearable",
+        "modelo": "Pulsioxímetro O2Ring",
+        "fabricante": "Wellue",
+        "fecha_instalacion": "2026-01-10T08:00:00Z",
+        "conectado": true,
+        "lecturas": [
+          {
+            "id_lectura": "8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+            "valor": 92.0,
+            "unidad": "%",
+            "timestamp": "2026-07-14T07:15:00Z",
+            "calidad_dato": "Alta"
+          }
+        ]
+      }
+    ],
+    "consentimientos": [
+      {
+        "id_consentimiento": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
+        "id_proposito": "993a4bc6-8d5c-48c5-928d-19036f01df22",
+        "fecha_inicio": "2026-01-01T00:00:00Z",
+        "fecha_expiracion": "2036-01-01T00:00:00Z",
+        "estado": "Activo",
+        "ambitos_consentidos": "Tratamiento médico, Monitorización remota",
+        "id_dominio_gaia_fk": "bb1d8a4e-128a-4933-911e-436f56c70b55",
+        "firma_digital": "sig_mno345"
+      }
+    ],
+    "auditorias": [
+      {
+        "id_audit": "0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f",
+        "id_usuario_acceso": "62db3fc0-9a99-4c8e-a9b8-18de11c8a14b",
+        "accion": "Leer",
+        "timestamp": "2026-07-14T07:10:00Z",
+        "motivo_acceso": "Revisión neumología",
+        "ip_origen": "192.168.1.14",
+        "resultado": "Exitoso"
+      }
+    ]
+  }
+]

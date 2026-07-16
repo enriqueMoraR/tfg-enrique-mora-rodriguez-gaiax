@@ -1,0 +1,3 @@
+gx-provider,0.08%,255.8MiB / 31.24GiB,1.03MB / 1.17MB,0B / 729kB
+gx-trust,38.79%,259.9MiB / 31.24GiB,1.27MB / 815kB,0B / 733kB
+gx-consumer,0.11%,239MiB / 31.24GiB,32.2kB / 5.61kB,0B / 737kB

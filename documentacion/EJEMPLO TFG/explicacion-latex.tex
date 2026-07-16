@@ -1,0 +1,361 @@
+% --- INICIO: PREÁMBULO DE EJEMPLO ---
+% Este bloque es un ejemplo. Deberías integrarlo en tu documento principal.
+% \documentclass{report} % o 'book', 'article'
+%
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{graphicx} % Para incluir imágenes
+% \usepackage[a4paper, margin=2.5cm]{geometry} % Márgenes
+% \usepackage{hyperref} % Para enlaces web
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,
+%     urlcolor=cyan,
+% }
+% \usepackage{listings} % Para bloques de código simples
+% \usepackage{minted} % Para resaltado de sintaxis avanzado (requiere Pygments)
+% \usepackage{float} % Para mejor control de flotantes (figuras, tablas)
+%
+% % Configuración para bloques de código
+% \lstset{
+%   basicstyle=\ttfamily\small,
+%   breaklines=true,
+%   frame=single,
+%   showstringspaces=false,
+% }
+% --- FIN: PREÁMBULO DE EJEMPLO ---
+
+
+\chapter{Diseño, Arquitectura y Despliegue del Prototipo}
+\label{chap:arquitectura}
+
+Este capítulo detalla el diseño técnico y la arquitectura del prototipo de espacio de datos para el sector salud, desarrollado como parte de este Trabajo Fin de Grado. Se presenta la descomposición del sistema en microservicios, los flujos de datos federados, el modelo de persistencia y la estrategia de despliegue y evaluación de rendimiento, todo ello alineado con los principios de Gaia-X.
+
+\section{Visión General de la Arquitectura}
+
+El sistema se ha diseñado siguiendo una arquitectura de microservicios distribuida. El objetivo es desacoplar las responsabilidades, mejorar la escalabilidad individual de los componentes y simular un ecosistema de datos federado donde distintos participantes (nodos) interactúan de forma segura y soberana.
+
+La comunicación entre servicios se realiza principalmente a través de APIs REST, y el despliegue se gestiona mediante contenedores Docker, orquestados con Docker Compose para facilitar la reproducibilidad del entorno. Cada microservicio representa un rol o una capacidad específica dentro del espacio de datos, como se detalla a continuación.
+
+\section{Arquitectura de Microservicios}
+
+El prototipo está compuesto por cuatro servicios principales y una base de datos, cada uno con un propósito bien definido dentro del ecosistema Gaia-X.
+
+\subsection{Servicio Proveedor (\texttt{gaiax-health-provider-node})}
+
+El nodo proveedor es el custodio de los datos. Su responsabilidad principal es gestionar el acceso a los recursos de datos (en este caso, datos de salud en formato FHIR), aplicando las políticas de uso y consentimiento definidas.
+
+\textbf{Responsabilidades clave:}
+\begin{itemize}
+    \item Exponer un endpoint de datos compatible con FHIR.
+    \item Validar las peticiones de acceso contra el servicio de confianza.
+    \item Gestionar la conexión con la base de datos PostgreSQL donde residen los datos.
+    \item Registrar (log) todas las transacciones de datos para auditoría.
+\end{itemize}
+
+\subsubsection*{Diagrama de Arquitectura Interna}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{path/to/your/provider-diagram.png}
+    \caption{Arquitectura interna del Nodo Proveedor.}
+    \label{fig:provider_arch}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+%% Objetivo: Mostrar los componentes internos del servicio Proveedor.
+graph TD
+    subgraph gaiax-health-provider-node
+        direction LR
+        A[API Gateway / Controller] --> B{Lógica de Negocio};
+        B --> C[Acceso a Datos (JPA/JDBC)];
+        C --> D[(PostgreSQL DB)];
+        B --> E[Cliente HTTP para Trust Service];
+    end
+    E --> F[gaiax-health-trust-service];
+    style A fill:#cde4ff
+    style B fill:#cde4ff
+    style C fill:#cde4ff
+\end{minted}
+
+\subsection{Servicio de Confianza (\texttt{gaiax-health-trust-service})}
+
+Este servicio actúa como el ancla de confianza del ecosistema. Centraliza la lógica de gobernanza, como la gestión de identidades de los participantes, la validación de políticas y la gestión de consentimientos. Es un componente crítico para establecer un marco de confianza (Trust Framework).
+
+\textbf{Responsabilidades clave:}
+\begin{itemize}
+    \item Gestionar un registro de participantes autorizados en el espacio de datos.
+    \item Validar las políticas de consentimiento asociadas a una transacción de datos.
+    \item Ofrecer una API para que otros servicios puedan verificar la confianza y las políticas.
+\end{itemize}
+
+\subsubsection*{Diagrama de Arquitectura Interna}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{path/to/your/trust-diagram.png}
+    \caption{Arquitectura interna del Servicio de Confianza.}
+    \label{fig:trust_arch}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+%% Objetivo: Describir la arquitectura del servicio de Confianza.
+graph TD
+    subgraph gaiax-health-trust-service
+        direction LR
+        A[API de Gobernanza] --> B{Lógica de Políticas y Confianza};
+        B --> C[Registro de Participantes];
+        B --> D[Motor de Políticas (Consentimiento)];
+    end
+    style A fill:#d5e8d4
+    style B fill:#d5e8d4
+    style C fill:#d5e8d4
+    style D fill:#d5e8d4
+\end{minted}
+
+\subsection{Servicio Consumidor (\texttt{gaiax-health-consumer-node})}
+
+Representa a la entidad que necesita acceder a los datos para un propósito específico (ej. investigación). Su función es orquestar la petición de datos, interactuando primero con el servicio de confianza y luego con el proveedor.
+
+\textbf{Responsabilidades clave:}
+\begin{itemize}
+    \item Exponer una API para que las aplicaciones finales (como el Dashboard) soliciten datos.
+    \item Comunicarse con el Servicio de Confianza para autenticarse.
+    \item Realizar la petición final al Nodo Proveedor.
+\end{itemize}
+
+\subsubsection*{Diagrama de Arquitectura Interna}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{path/to/your/consumer-diagram.png}
+    \caption{Arquitectura interna del Nodo Consumidor.}
+    \label{fig:consumer_arch}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+%% Objetivo: Mostrar la lógica interna del servicio Consumidor.
+graph TD
+    subgraph gaiax-health-consumer-node
+        direction LR
+        A[API de Consumo] --> B{Lógica de Orquestación};
+        B --> C[Cliente HTTP para Trust Service];
+        B --> D[Cliente HTTP para Provider Node];
+    end
+    E[Dashboard] --> A;
+    C --> F[gaiax-health-trust-service];
+    D --> G[gaiax-health-provider-node];
+    style A fill:#ffcdd2
+    style B fill:#ffcdd2
+    style C fill:#ffcdd2
+    style D fill:#ffcdd2
+\end{minted}
+
+\subsection{Dashboard (\texttt{gaiax-health-dashboard})}
+
+Es la interfaz de usuario final, una aplicación web (Vue.js) que permite visualizar los datos de salud. Actúa como el cliente principal del Nodo Consumidor y como proxy inverso (Nginx) para enrutar las peticiones a los servicios de backend.
+
+\section{Flujo de Datos Federado}
+
+El flujo de datos principal simula una petición de datos para investigación. Involucra a todos los nodos y sigue un patrón que garantiza la soberanía y la confianza.
+
+\begin{enumerate}
+    \item El \textbf{Usuario}, a través del \textbf{Dashboard}, solicita acceso a datos.
+    \item El \textbf{Dashboard} reenvía la petición al \textbf{Nodo Consumidor}.
+    \item El \textbf{Nodo Consumidor} contacta al \textbf{Servicio de Confianza} para validar su identidad y el propósito.
+    \item El \textbf{Servicio de Confianza} devuelve una confirmación.
+    \item El \textbf{Nodo Consumidor} realiza la petición de datos al \textbf{Nodo Proveedor}.
+    \item El \textbf{Nodo Proveedor} re-verifica la petición contra el \textbf{Servicio de Confianza}.
+    \item Una vez validado, el \textbf{Nodo Proveedor} accede a la base de datos \textbf{PostgreSQL} y devuelve los datos al \textbf{Consumidor}.
+    \item El \textbf{Consumidor} pasa los datos al \textbf{Dashboard}, que los presenta al usuario.
+\end{enumerate}
+
+\subsubsection*{Diagrama de Secuencia del Flujo de Datos}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=\textwidth]{path/to/your/sequence-diagram.png}
+    \caption{Diagrama de secuencia del flujo de datos federado.}
+    \label{fig:data_flow}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+sequenceDiagram
+    participant User
+    participant Dashboard
+    participant Consumer as gaiax-health-consumer-node
+    participant Trust as gaiax-health-trust-service
+    participant Provider as gaiax-health-provider-node
+    participant DB as PostgreSQL
+
+    User->>Dashboard: 1. Solicitar datos de salud
+    Dashboard->>Consumer: 2. Petición API
+    Consumer->>Trust: 3. Validar identidad y propósito
+    activate Trust
+    Trust-->>Consumer: 4. Confirmación
+    deactivate Trust
+    Consumer->>Provider: 5. Solicitar datos
+    activate Provider
+    Provider->>Trust: 6. Re-verificar política
+    activate Trust
+    Trust-->>Provider: 7. Política OK
+    deactivate Trust
+    Provider->>DB: 8. Consultar datos
+    activate DB
+    DB-->>Provider: 9. Datos del paciente
+    deactivate DB
+    Provider-->>Consumer: 10. Devolver datos
+    deactivate Provider
+    Consumer-->>Dashboard: 11. Enviar datos a la UI
+    Dashboard-->>User: 12. Mostrar datos
+\end{minted}
+
+\section{Diseño del Modelo de Datos}
+
+La persistencia se gestiona con PostgreSQL. El esquema se ha simplificado para almacenar recursos FHIR básicos como Pacientes y Observaciones.
+
+\subsubsection*{Diagrama Entidad-Relación (ERD)}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.7\textwidth]{path/to/your/er-diagram.png}
+    \caption{Diagrama Entidad-Relación (ERD) simplificado.}
+    \label{fig:er_diagram}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+erDiagram
+    PATIENT {
+        int id PK "Identificador único"
+        varchar family_name "Apellido"
+        varchar given_name "Nombre"
+        date birth_date "Fecha de nacimiento"
+    }
+    OBSERVATION {
+        int id PK "Identificador único"
+        int patient_id FK "ID del paciente"
+        varchar code "Código de observación"
+        float value "Valor"
+        varchar unit "Unidad"
+        datetime effective_date "Fecha"
+    }
+    PATIENT ||--o{ OBSERVATION : "tiene"
+\end{minted}
+
+\section{Arquitectura de Despliegue y Nodos}
+
+El sistema se despliega como una red de contenedores Docker orquestados con `docker-compose.yml`. Se utiliza una red interna (\texttt{gaia-x-backend}) para la comunicación segura entre microservicios.
+
+\subsubsection*{Diagrama de Despliegue}
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=\textwidth]{path/to/your/deployment-diagram.png}
+    \caption{Diagrama de despliegue con Docker Compose.}
+    \label{fig:deployment_diagram}
+\end{figure}
+
+\paragraph{Prompt para el diagrama (Mermaid):}
+\begin{minted}{text}
+graph TD
+    subgraph "Máquina Host"
+        direction LR
+        subgraph "Red Externa (Pública)"
+            U[Usuario/Navegador]
+        end
+        subgraph "Docker Engine"
+            direction TB
+            subgraph "Red Interna: gaia-x-backend"
+                direction LR
+                C(Consumer:8083)
+                P(Provider:8081)
+                T(Trust:8082)
+                DB[(Postgres:5432)]
+                C <--> T; C <--> P; P <--> T; P <--> DB
+            end
+            D(Dashboard:3000)
+            U -- "HTTP" --> D
+            D -- "Proxy a /api/fhir" --> C
+        end
+    end
+    style C fill:#ffcdd2
+    style P fill:#cde4ff
+    style T fill:#d5e8d4
+    style D fill:#fcf8e3
+\end{minted}
+
+\section{Análisis de Escalabilidad y Pruebas de Carga}
+\label{sec:pruebas_carga}
+
+Para validar el rendimiento, la estabilidad y la escalabilidad de la arquitectura del sistema bajo condiciones de uso realista, se llevó a cabo una serie de pruebas de carga utilizando la herramienta Grafana k6.
+
+\subsection{Diseño y Configuración de la Prueba}
+El objetivo de la prueba fue simular un flujo de usuario E2E (End-to-End) representativo, que interactúa con el sistema a través de su único punto de entrada público: el \textit{dashboard}.
+
+\begin{itemize}
+    \item \textbf{Herramienta:} Grafana k6.
+    \item \textbf{Entorno de Ejecución:} Local, sobre la infraestructura desplegada con Docker Compose.
+    \item \textbf{Flujo de Usuario Simulado:}
+    \begin{enumerate}
+        \item Búsqueda de un recurso \texttt{Patient} por nombre a través del endpoint \texttt{/api/fhir/Patient}.
+        \item Extracción del ID del paciente de la respuesta.
+        \item Búsqueda de todos los recursos \texttt{Observation} asociados a ese paciente utilizando su ID.
+    \end{enumerate}
+    \item \textbf{Perfil de Carga:} La prueba se configuró para escalar gradualmente hasta un máximo de 25 usuarios virtuales (VUs) concurrentes durante un período total de 10 minutos, distribuidos en las siguientes etapas:
+    \begin{itemize}
+        \item \textbf{Rampa de subida:} 0 a 10 VUs en 1 minuto.
+        \item \textbf{Rampa de subida:} 10 a 25 VUs en 3 minutos.
+        \item \textbf{Carga sostenida:} 25 VUs durante 5 minutos.
+        \item \textbf{Rampa de bajada:} 25 a 0 VUs en 1 minuto.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Criterios de Éxito y Resultados}
+Se definieron dos umbrales críticos (\textit{thresholds}) para determinar el éxito de la prueba:
+\begin{itemize}
+    \item \textbf{Tasa de Fallos (\texttt{http\_req\_failed}):} El porcentaje de peticiones fallidas debe ser inferior al 1\% (\texttt{rate<0.01}).
+    \item \textbf{Tiempo de Respuesta (\texttt{http\_req\_duration}):} El 95\% de las peticiones deben completarse en menos de 2000 milisegundos (\texttt{p(95)<2000}).
+\end{itemize}
+
+Los resultados obtenidos, como se detalla en la Tabla \ref{tab:k6_results}, demuestran un rendimiento excepcional del sistema, superando ambos criterios con un margen considerable.
+
+\begin{table}[H]
+    \centering
+    \caption{Métricas Clave de la Prueba de Carga (25 VUs Concurrentes)}
+    \label{tab:k6_results}
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Métrica} & \textbf{Avg} & \textbf{Mediana} & \textbf{p(95)} & \textbf{Resultado vs. Umbral} \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Métricas de Rendimiento}} \\
+        Duración Total Petición & 26.47ms & 31.98ms & 60.89ms & \textcolor{green!60!black}{\textbf{Pasa (p95<2000ms)}} \\
+        Búsqueda de Paciente & 2.87ms & 2.63ms & 4.41ms & - \\
+        Búsqueda de Observaciones & 50.08ms & 47.89ms & 67.21ms & - \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Métricas de Estabilidad y Carga}} \\
+        Tasa de Fallos & \multicolumn{3}{c}{0.00\%} & \textcolor{green!60!black}{\textbf{Pasa (rate<1\%)}} \\
+        Peticiones por Segundo & \multicolumn{3}{c}{36.69 reqs/s} & - \\
+        Total Peticiones & \multicolumn{3}{c}{22,028} & - \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Análisis de los Resultados}
+\label{sec:analisis_resultados_carga}
+
+El análisis de los datos arrojados por k6 permite extraer conclusiones muy positivas sobre la arquitectura implementada:
+
+\begin{itemize}
+    \item \textbf{Estabilidad Absoluta:} El indicador más crítico, la tasa de fallos, se mantuvo en un \textbf{0.00\%} durante toda la prueba. Esto significa que de las 22,028 peticiones realizadas, ninguna resultó en un error, lo que demuestra una robustez y fiabilidad excepcionales del sistema incluso bajo una carga concurrente sostenida.
+
+    \item \textbf{Rendimiento Sobresaliente:} Los tiempos de respuesta fueron extremadamente bajos. El percentil 95 general se situó en \textbf{60.89ms}, una cifra que está órdenes de magnitud por debajo del umbral de aceptación de 2000ms. Esto indica que el sistema no solo es estable, sino también extraordinariamente rápido en su respuesta al usuario.
+
+    \item \textbf{Eficiencia del Flujo E2E:} Al desglosar el flujo de usuario, se observa que ambas etapas son muy eficientes. La búsqueda inicial de pacientes (p95 de \textbf{4.41ms}) y la posterior recuperación de sus observaciones (p95 de \textbf{67.21ms}) se resuelven en tiempos mínimos, validando que la comunicación entre servicios y el acceso a la base de datos están altamente optimizados.
+
+    \item \textbf{Capacidad de Carga:} El sistema gestionó un volumen de tráfico de \textbf{36.69 peticiones por segundo} sin mostrar ningún signo de degradación en el rendimiento o la estabilidad. La cantidad total de datos transferidos (1.4 GB recibidos) también fue manejada sin inconvenientes.
+\end{itemize}
+
+\subsection{Conclusión sobre la Escalabilidad}
+Los resultados de la prueba de carga son concluyentes: la arquitectura del sistema \texttt{gaiax-health-deployment} es altamente escalable, robusta y performante. El diseño basado en microservicios y la comunicación a través de un único punto de entrada demuestran ser capaces de manejar una carga de 25 usuarios concurrentes no solo sin fallos, sino con una eficiencia notable.
+
+El sistema no mostró indicios de haber alcanzado su límite de capacidad. Para identificar el punto de ruptura real, sería necesario ejecutar pruebas de estrés con una carga significativamente mayor (e.g., 100 VUs o más), lo cual excede el alcance de esta validación funcional pero confirma el éxito del diseño actual para escenarios de uso realistas.

@@ -1,0 +1,73 @@
+% Main TFG LaTeX using esi-tfg class
+\documentclass[spanish]{esi-tfg}
+
+% Metadata and packages
+\input{metadata.tex}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+\begin{resumen}
+% Resumen extraído del README — editar según convenga
+Este Trabajo Fin de Grado implementa un MVP de un ecosistema de datos Gaia‑X en el dominio de la salud. Incluye tres microservicios (Provider, Trust, Consumer) y un dashboard React para visualización de datos clínicos FHIR, validación de políticas y trazabilidad end‑to‑end.
+\end{resumen}
+
+\tableofcontents
+\mainmatter
+
+\chapter{Introducción}
+\section{Motivación}
+% (editar) Breve motivación del proyecto
+
+\section{Objetivos}
+% Objetivos principales extraídos del README
+\begin{itemize}
+  \item Demostrar intercambio soberano de datos entre participantes
+  \item Implementar un dashboard interactivo para datos FHIR
+  \item Probar control de acceso y trazabilidad end‑to‑end
+  \item Evaluar rendimiento bajo carga
+\end{itemize}
+
+\chapter{Estado del Arte}
+\section{Gaia‑X y EDC}
+\section{Estándares FHIR}
+\section{Trabajos relacionados}
+
+\chapter{Análisis y Diseño}
+\section{Arquitectura del sistema}
+% Insertar diagrama (por ejemplo: \includegraphics{figures/architecture.png})
+\section{Modelado de datos}
+\section{Decisiones arquitectónicas (ADR)}
+
+\chapter{Implementación}
+\section{Backend}
+\subsection{Provider}
+\subsection{Trust}
+\subsection{Consumer}
+\section{Frontend}
+\section{Contenerización y despliegue}
+
+\chapter{Pruebas y Validación}
+\section{Pruebas unitarias e integrales}
+\section{Ejecución E2E}
+\section{Resultados de rendimiento}
+
+\chapter{Conclusiones y Trabajo Futuro}
+\section{Conclusiones}
+\section{Líneas futuras}
+
+\appendix
+\input{documentacion.tex}
+\input{defensa.tex}
+
+\chapter{Instrucciones de desarrollo}
+% Copiar fragmentos relevantes del README o referenciarlo
+
+\chapter{Evidencias}
+% Añadir logs, capturas y resultados de carga
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

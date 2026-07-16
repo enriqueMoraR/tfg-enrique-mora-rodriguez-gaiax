@@ -1,0 +1,6 @@
+{
+  "datasetId": "ds-load-20260427T170834Z",
+  "consumerId": "consumer-loadtest",
+  "purpose": "research",
+  "scopes": ["dataset.read"]
+}

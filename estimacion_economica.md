@@ -1,4 +1,3 @@
-# Estimación económica del proyecto.
 
 Considerando el proyecto desde una perspectiva profesional, el coste estimado de desarrollo asciende a **32.065 €**, incluyendo costes de personal, recursos materiales y un margen de contingencia del **10 %**. Aunque la implementación se ha realizado en un contexto académico y utilizando principalmente tecnologías de código abierto, esta estimación permite dimensionar el esfuerzo económico que supondría desarrollar una solución equivalente en un entorno empresarial.
 

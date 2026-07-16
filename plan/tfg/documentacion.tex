@@ -1,0 +1,49 @@
+% Documentacion converted from documentacion.md
+\chapter{Documentación y Base Bibliográfica}
+\label{ch:documentacion}
+
+Este capítulo recoge las fuentes primarias, estándares, especificaciones técnicas y referencias académicas en las que se fundamenta el diseño arquitectónico, tecnológico y funcional del proyecto. Las citas siguen el formato APA (editar según necesidad).
+
+\section{Marco Conceptual: Gaia-X y Espacios de Datos}
+Un \textbf{espacio de datos} (data space) es una infraestructura federada que permite el intercambio soberano de datos entre participantes sin centralización, garantizando que el propietario de los datos mantiene el control sobre quién los usa, cómo y para qué. Gaia-X es la iniciativa europea que define los principios y el marco.
+
+\subsection{Documentos de referencia presentes en el repositorio}
+\begin{itemize}
+  \item \textbf{Whitepaper Gaia-X}: documentacion/WhitepaperGaiaX.pdf
+  \item \textbf{Presentación de Casos de Uso en Salud}: documentacion/20240429-Presentaci\'on-Gaia-X-casos-de-uso-SALUD.pdf
+\end{itemize}
+
+\section{Eclipse Dataspace Connector (EDC)}
+Se explica el control plane y data plane y la estrategia EDC-first adoptada en el proyecto (ADR-002). Referencias: Eclipse EDC docs y Dataspace Protocol.
+
+\section{Estándar HL7 FHIR R4}
+Breve descripción de FHIR, recursos usados (Bundle, Observation) y ejemplo de Observation para presión arterial.
+
+\section{Sistemas de codificación: LOINC y UCUM}
+Listado de códigos LOINC usados (55284-4, 85354-9, 8480-6, 8462-4, 8867-4) y unidades UCUM (`mm[Hg]`, `/min`).
+
+\section{Regulación: GDPR y EHDS}
+Resumen de principios GDPR relevantes (minimización, finalidad, integridad) y alineamiento con EHDS.
+
+\section{Seguridad: OAuth2, JWT y Control de Acceso}
+Descripción del uso del flujo client\_credentials y JWT en el Trust Service; evolución prevista a DID/VC.
+
+\section{Arquitectura de Microservicios y DDD}
+Principios aplicados (SRP, API First, deploy independiente) y estructura de carpetas (api/, domain/).
+
+\section{Stacks Tecnológicos}
+Resumen de stacks backend y frontend (Spring Boot + Java 25, React + TypeScript, Vite, TanStack Query, Recharts, Tailwind).
+
+\section{Contenedores, DevOps y Observabilidad}
+Multi-stage builds, health checks, Docker Compose y uso de Actuator/Micrometer/OpenTelemetry.
+
+\section{Testing y Calidad}
+Pir\'amide de tests, frameworks usados (JUnit 5, Vitest, RTL) y criterios de cobertura.
+
+\section{Documentación interna del proyecto}
+Listado de documentos internos y su ruta: plan/analisis_funcional.md, plan/analisis_tecnico.md, plan/contratos_api.md, plan/tareas.md, plan/evidencias_t9.md, plan/informe_carga_t10.md, plan/METADATA.md.
+
+\section{ADRs y Bibliografía}
+Resumen de ADRs (ADR-001..ADR-007) y referencia a la bibliografía completa. Para la bibliografía vea el archivo documentacion.md o references.bib.
+
+% Fin de documentacion.tex

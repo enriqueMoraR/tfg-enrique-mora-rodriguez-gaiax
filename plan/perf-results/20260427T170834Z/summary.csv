@@ -1,0 +1,7 @@
+scenario,profile,requests,concurrency,total,ok,error_rate_pct,p50_ms,p95_ms,p99_ms,throughput_rps,duration_s
+provider_list,baseline,300,10,300,300,0,00,19,33,57,173,11,1,733
+provider_list,scaled,1200,40,1200,1200,0,00,18,32,50,144,01,8,333
+trust_policy,baseline,300,10,300,300,0,00,19,25,27,181,49,1,653
+trust_policy,scaled,1200,40,1200,1200,0,00,17,21,28,176,16,6,812
+consumer_job_status,baseline,300,10,300,300,0,00,19,25,28,177,51,1,690
+consumer_job_status,scaled,1200,40,1200,1200,0,00,16,23,29,173,34,6,923
